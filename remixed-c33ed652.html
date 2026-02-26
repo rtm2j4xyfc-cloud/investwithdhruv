@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invest With Dhruv 🍁 — Canada's Student Investing Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--dark:#16180f;--olive:#3e4a30;--olive-mid:#5c6e42;--olive-light:#8fa870;--maple:#c0392b;--maple-soft:#e05c4b;--beige:#ede4cc;--beige-dark:#d6caac;--beige-light:#f6f1e6;--cream:#faf7f0;--text:#252618;--text-muted:#767863;--border:#ddd6c0;}
+  *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:20px 64px;display:flex;align-items:center;justify-content:space-between;background:rgba(22,24,15,.97);backdrop-filter:blur(18px);border-bottom:1px solid rgba(143,168,112,.15);transition:padding .3s;}
+  nav.scrolled{padding:13px 64px;}
+  .logo{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:700;color:var(--beige);text-decoration:none;letter-spacing:.4px;cursor:pointer;}
+  .nav-links{display:flex;gap:22px;list-style:none;align-items:center;}
+  .nav-links a{color:rgba(237,228,204,.55);text-decoration:none;font-size:.75rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;transition:color .2s;cursor:pointer;}
+  .nav-links a:hover{color:var(--beige);}
+  .nav-links a.active{color:var(--olive-light);}
+  .nav-cta{background:var(--maple)!important;color:#fff!important;padding:9px 20px;border-radius:4px;}
+  .nav-cta:hover{background:var(--maple-soft)!important;}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+  .hamburger span{width:22px;height:1.5px;background:var(--beige);}
+  .mobile-menu{display:none;position:fixed;inset:0;z-index:190;background:var(--dark);flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:var(--beige);text-decoration:none;transition:color .2s;}
+  .mobile-menu a:hover{color:var(--olive-light);}
+  .mobile-close{position:absolute;top:24px;right:28px;font-size:1.8rem;color:rgba(237,228,204,.35);cursor:pointer;background:none;border:none;font-family:inherit;}
+
+  /* PAGE SYSTEM */
+  .page{display:none;}.page.active{display:block;}
+
+  /* SHARED */
+  .section-eyebrow{font-size:.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--olive-mid);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+  .section-eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--olive-mid);}
+  .section-eyebrow.light{color:var(--olive-light);}.section-eyebrow.light::before{background:var(--olive-light);}
+  .section-eyebrow.maple-eye{color:var(--maple-soft);}.section-eyebrow.maple-eye::before{background:var(--maple-soft);}
+  .section-eyebrow.center{justify-content:center;}.section-eyebrow.center::before{display:none;}
+  .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3.5vw,3rem);font-weight:700;color:var(--dark);line-height:1.08;letter-spacing:-.5px;margin-bottom:16px;}
+  .section-title.light{color:var(--beige);}
+  .section-sub{font-size:.93rem;color:var(--text-muted);line-height:1.82;font-weight:300;}
+  .divider{height:1px;background:var(--border);margin:0 64px;}
+  .btn-maple{background:var(--maple);color:#fff;padding:15px 30px;border-radius:4px;text-decoration:none;border:none;font-family:'Jost',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;transition:all .25s;cursor:pointer;display:inline-flex;align-items:center;gap:10px;}
+  .btn-maple:hover{background:var(--maple-soft);transform:translateY(-2px);box-shadow:0 10px 28px rgba(192,57,43,.3);}
+  .btn-olive{background:var(--olive-mid);color:var(--beige);padding:15px 30px;border-radius:4px;border:none;font-family:'Jost',sans-serif;font-size:.8rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;transition:all .25s;cursor:pointer;}
+  .btn-olive:hover{background:var(--olive-light);color:var(--dark);transform:translateY(-2px);}
+  .btn-ghost{background:transparent;color:rgba(237,228,204,.6);padding:15px 30px;border-radius:4px;border:1px solid rgba(237,228,204,.18);font-family:'Jost',sans-serif;font-size:.8rem;font-weight:400;letter-spacing:1px;text-transform:uppercase;transition:all .25s;cursor:pointer;}
+  .btn-ghost:hover{border-color:var(--olive-light);color:var(--olive-light);}
+
+  /* HERO */
+  #home{min-height:100vh;background:var(--dark);display:flex;align-items:center;position:relative;overflow:hidden;padding:130px 64px 90px;}
+  .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(143,168,112,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(143,168,112,.035) 1px,transparent 1px);background-size:72px 72px;}
+  .hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 50% 65% at 72% 48%,rgba(92,110,66,.22) 0%,transparent 65%),radial-gradient(ellipse 28% 38% at 12% 82%,rgba(192,57,43,.08) 0%,transparent 60%);}
+  .hero-watermark{position:absolute;right:-60px;top:50%;transform:translateY(-50%);font-size:42vw;line-height:1;opacity:.018;user-select:none;pointer-events:none;}
+  .hero-content{position:relative;max-width:720px;animation:fadeUp 1s ease both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+  .hero-flag{display:inline-flex;align-items:center;gap:10px;background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3);color:var(--maple-soft);font-size:.7rem;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:30px;}
+  #home h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,7vw,6.8rem);font-weight:700;color:var(--beige);line-height:.93;letter-spacing:-2px;margin-bottom:28px;}
+  #home h1 em{font-style:italic;color:var(--olive-light);}
+  #home h1 .maple-word{color:var(--maple);font-style:normal;}
+  .hero-sub{font-size:1.05rem;color:rgba(237,228,204,.52);line-height:1.78;margin-bottom:20px;max-width:520px;font-weight:300;}
+  .hero-dhruv-line{display:flex;align-items:center;gap:12px;font-size:.78rem;color:rgba(237,228,204,.35);margin-bottom:42px;font-weight:400;letter-spacing:.5px;}
+  .hero-dhruv-line::before{content:'';display:block;width:28px;height:1px;background:var(--olive-light);}
+  .hero-dhruv-line strong{color:var(--olive-light);font-weight:600;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .hero-stats{position:absolute;right:64px;bottom:90px;display:flex;flex-direction:column;gap:28px;animation:fadeUp 1s .4s ease both;}
+  .stat{text-align:right;}.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;color:var(--beige);line-height:1;}
+  .stat-num span{color:var(--olive-light);}.stat-label{font-size:.65rem;color:rgba(237,228,204,.28);text-transform:uppercase;letter-spacing:1.4px;margin-top:4px;}
+
+  /* DHRUV BANNER */
+  .dhruv-banner{background:var(--olive);padding:52px 64px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+  .dhruv-label{font-size:.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--olive-light);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .dhruv-label::before{content:'';display:block;width:20px;height:1px;background:var(--olive-light);}
+  .dhruv-banner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:700;color:var(--beige);line-height:1.2;letter-spacing:-.5px;margin-bottom:12px;}
+  .dhruv-banner p{font-size:.92rem;color:rgba(237,228,204,.52);line-height:1.75;font-weight:300;}
+  .dhruv-signature{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-style:italic;font-weight:400;color:rgba(237,228,204,.18);white-space:nowrap;user-select:none;}
+
+  /* WHY */
+  .why{padding:96px 64px;background:var(--beige-light);}
+  .why-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center;}
+  .why-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .why-card{background:var(--cream);border-radius:10px;padding:24px 20px;border:1px solid var(--border);transition:all .25s;}
+  .why-card:hover{border-color:var(--olive-mid);box-shadow:0 6px 24px rgba(62,74,48,.1);transform:translateY(-3px);}
+  .why-card-icon{font-size:1.5rem;margin-bottom:12px;}
+  .why-card h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--dark);margin-bottom:6px;}
+  .why-card p{font-size:.81rem;color:var(--text-muted);line-height:1.65;}
+  .canada-box{background:var(--dark);border-radius:12px;padding:28px;border-left:3px solid var(--maple);margin-top:20px;}
+  .canada-box .canada-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--beige);margin-bottom:8px;}
+  .canada-box p{font-size:.86rem;color:rgba(237,228,204,.5);line-height:1.75;font-weight:300;}
+  .canada-box p strong{color:var(--beige);font-weight:500;}
+
+  /* ARTICLES */
+  #articles{padding:96px 64px;}
+  .articles-inner{max-width:1200px;margin:0 auto;}
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0 32px;}
+  .filter-btn{padding:7px 16px;border-radius:3px;border:1px solid var(--border);background:var(--beige-light);color:var(--text-muted);font-family:'Jost',sans-serif;font-size:.74rem;font-weight:500;letter-spacing:.9px;text-transform:uppercase;cursor:pointer;transition:all .2s;}
+  .filter-btn:hover,.filter-btn.active{background:var(--dark);color:var(--beige);border-color:var(--dark);}
+  .filter-btn.maple-filter.active{background:var(--maple);border-color:var(--maple);}
+  .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .article-card{border-radius:10px;overflow:hidden;border:1px solid var(--border);transition:all .25s;background:var(--cream);cursor:pointer;position:relative;display:block;text-decoration:none;color:inherit;}
+  .article-card:hover{box-shadow:0 12px 40px rgba(22,24,15,.12);transform:translateY(-4px);border-color:var(--beige-dark);}
+  .article-card.canada-article::after{content:'🇨🇦';position:absolute;top:12px;right:12px;font-size:.9rem;background:rgba(22,24,15,.6);padding:3px 7px;border-radius:10px;}
+  .article-thumb{height:150px;display:flex;align-items:center;justify-content:center;font-size:2.4rem;}
+  .t1{background:linear-gradient(135deg,#16180f,#3e4a30)}.t2{background:linear-gradient(135deg,#3e4a30,#5c6e42)}.t3{background:linear-gradient(135deg,#5c6e42,#8fa870)}.t4{background:linear-gradient(135deg,#16180f,#5c6e42)}.t5{background:linear-gradient(135deg,#3e4a30,#8fa870)}.t6{background:linear-gradient(135deg,#2a1a18,#6b2820)}
+  .article-body{padding:20px;}
+  .article-tag{font-size:.64rem;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:var(--olive-mid);margin-bottom:7px;}
+  .article-tag.maple-tag{color:var(--maple);}
+  .article-body h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--dark);line-height:1.33;margin-bottom:7px;}
+  .article-body p{font-size:.8rem;color:var(--text-muted);line-height:1.62;margin-bottom:12px;}
+  .article-meta{font-size:.7rem;color:var(--text-muted);display:flex;align-items:center;gap:8px;}
+  .article-meta::before{content:'';width:16px;height:1px;background:var(--border);}
+  .featured-card{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;}
+  .featured-card .article-thumb{height:100%;min-height:200px;font-size:3.2rem;}
+  .featured-card .article-body{padding:28px;display:flex;flex-direction:column;justify-content:center;}
+  .featured-card .article-body h3{font-size:1.4rem;margin-bottom:10px;}
+  .featured-card .article-body p{font-size:.86rem;margin-bottom:16px;}
+
+  /* ═══ TOOLS SECTION ═══ */
+  #tools{padding:96px 64px;background:var(--dark);position:relative;overflow:hidden;}
+  #tools::before{content:'🍁';position:absolute;right:-60px;bottom:-60px;font-size:45vw;opacity:.02;user-select:none;pointer-events:none;line-height:1;}
+  .tools-inner{max-width:1200px;margin:0 auto;position:relative;}
+  .tools-header{margin-bottom:40px;}
+
+  /* Tool Tab Navigation */
+  .tool-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;}
+  .tool-tab{padding:10px 22px;border-radius:6px;border:1px solid rgba(237,228,204,.12);background:rgba(237,228,204,.04);color:rgba(237,228,204,.45);font-family:'Jost',sans-serif;font-size:.76rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .2s;}
+  .tool-tab:hover{border-color:rgba(143,168,112,.3);color:rgba(237,228,204,.8);}
+  .tool-tab.active{background:var(--olive-mid);border-color:var(--olive-mid);color:var(--beige);}
+  .tool-panel{display:none;}.tool-panel.active{display:block;}
+
+  /* Shared tool card */
+  .tool-card{background:rgba(237,228,204,.04);border:1px solid rgba(237,228,204,.1);border-radius:16px;overflow:hidden;}
+  .tool-card-header{background:var(--olive);padding:22px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .tool-card-header h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--beige);}
+  .tool-card-header span{font-size:.75rem;color:rgba(237,228,204,.5);letter-spacing:.8px;text-transform:uppercase;}
+  .tool-body{padding:32px;}
+  .tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+
+  /* Inputs */
+  .input-group{margin-bottom:18px;}
+  .input-group label{display:block;font-size:.72rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(237,228,204,.45);margin-bottom:8px;}
+  .input-row{display:flex;align-items:center;}
+  .input-prefix{background:rgba(237,228,204,.07);border:1px solid rgba(237,228,204,.12);border-right:none;padding:12px 14px;border-radius:6px 0 0 6px;font-size:.9rem;color:rgba(237,228,204,.4);font-weight:500;}
+  .tool-input{flex:1;padding:12px 14px;border-radius:0 6px 6px 0;border:1px solid rgba(237,228,204,.12);background:rgba(237,228,204,.05);color:var(--beige);font-family:'Jost',sans-serif;font-size:.95rem;outline:none;transition:border-color .2s;}
+  .tool-input:focus{border-color:var(--olive-light);background:rgba(237,228,204,.08);}
+  .tool-input::placeholder{color:rgba(237,228,204,.2);}
+  .tool-input.solo{border-radius:6px;border-left:1px solid rgba(237,228,204,.12);}
+  .tool-select{width:100%;padding:12px 14px;border-radius:6px;border:1px solid rgba(237,228,204,.12);background:rgba(237,228,204,.05);color:var(--beige);font-family:'Jost',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s;-webkit-appearance:none;}
+  .tool-select:focus{border-color:var(--olive-light);}
+  .tool-select option{background:#2a3520;color:var(--beige);}
+  .tool-btn{background:var(--maple);color:#fff;border:none;padding:14px 28px;border-radius:6px;font-family:'Jost',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .25s;width:100%;margin-top:4px;}
+  .tool-btn:hover{background:var(--maple-soft);transform:translateY(-1px);}
+  .tool-btn.olive-btn{background:var(--olive-mid);}
+  .tool-btn.olive-btn:hover{background:var(--olive-light);color:var(--dark);}
+
+  /* Results shared */
+  .results-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;min-height:220px;text-align:center;gap:12px;}
+  .results-placeholder .ph-icon{font-size:2.5rem;opacity:.3;}
+  .results-placeholder p{font-size:.85rem;color:rgba(237,228,204,.2);font-weight:300;max-width:200px;line-height:1.6;}
+  .result-label{font-size:.72rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(237,228,204,.4);}
+  .result-value{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--beige);line-height:1.1;margin:4px 0 14px;}
+  .result-value.maple{color:var(--maple-soft);}
+  .result-value.olive{color:var(--olive-light);}
+  .result-value.gold{color:#d4a843;}
+  .result-value.blue{color:#7ab8d4;}
+  .result-note{font-size:.78rem;color:rgba(237,228,204,.3);line-height:1.65;font-style:italic;margin-top:8px;}
+  .bar-track{height:8px;background:rgba(237,228,204,.07);border-radius:4px;overflow:hidden;margin-bottom:14px;}
+  .bar-fill{height:100%;border-radius:4px;transition:width .9s cubic-bezier(.4,0,.2,1);width:0;}
+
+  /* ── COMPOUND CALCULATOR ── */
+  #compoundResults .big-result{background:rgba(143,168,112,.08);border:1px solid rgba(143,168,112,.2);border-radius:12px;padding:24px;margin-bottom:20px;text-align:center;}
+  #compoundResults .big-result .result-value{font-size:3rem;margin:6px 0;}
+  .compound-breakdown{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+  .cb-item{background:rgba(237,228,204,.04);border:1px solid rgba(237,228,204,.08);border-radius:8px;padding:14px;text-align:center;}
+  .cb-item .result-value{font-size:1.5rem;}
+  .chart-wrap{margin-top:16px;}
+  .chart-bars{display:flex;align-items:flex-end;gap:4px;height:80px;margin-bottom:6px;}
+  .chart-bar{flex:1;border-radius:3px 3px 0 0;transition:height .8s ease;min-width:6px;cursor:pointer;position:relative;}
+  .chart-bar:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(22,24,15,.9);color:var(--beige);font-size:.65rem;padding:4px 8px;border-radius:4px;white-space:nowrap;pointer-events:none;z-index:10;}
+  .chart-labels{display:flex;justify-content:space-between;font-size:.6rem;color:rgba(237,228,204,.2);}
+
+  /* ── TFSA TRACKER ── */
+  .tfsa-year-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px;}
+  .tfsa-year{background:rgba(237,228,204,.04);border:1px solid rgba(237,228,204,.08);border-radius:8px;padding:10px 8px;text-align:center;transition:all .2s;}
+  .tfsa-year.has-room{border-color:rgba(143,168,112,.25);}
+  .tfsa-year.over-limit{border-color:rgba(192,57,43,.4);background:rgba(192,57,43,.06);}
+  .tfsa-year .yr{font-size:.62rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(237,228,204,.3);margin-bottom:4px;}
+  .tfsa-year .room{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--olive-light);}
+  .tfsa-year.over-limit .room{color:var(--maple-soft);}
+  .tfsa-summary{background:rgba(143,168,112,.08);border:1px solid rgba(143,168,112,.2);border-radius:12px;padding:24px;margin-bottom:16px;}
+  .tfsa-summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center;}
+  .tfsa-warning{background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.25);border-radius:8px;padding:16px;margin-top:12px;font-size:.82rem;color:rgba(237,228,204,.55);line-height:1.65;}
+  .tfsa-warning strong{color:var(--maple-soft);}
+  .tfsa-inputs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+
+  /* ── GLOSSARY ── */
+  .glossary-search-wrap{margin-bottom:28px;position:relative;}
+  .glossary-search{width:100%;padding:14px 18px 14px 44px;border-radius:8px;border:1px solid rgba(237,228,204,.12);background:rgba(237,228,204,.05);color:var(--beige);font-family:'Jost',sans-serif;font-size:.95rem;outline:none;transition:border-color .2s;}
+  .glossary-search:focus{border-color:var(--olive-light);background:rgba(237,228,204,.08);}
+  .glossary-search::placeholder{color:rgba(237,228,204,.22);}
+  .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:1rem;opacity:.3;}
+  .glossary-alpha{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px;}
+  .alpha-btn{padding:5px 10px;border-radius:4px;border:1px solid rgba(237,228,204,.1);background:rgba(237,228,204,.04);color:rgba(237,228,204,.35);font-family:'Jost',sans-serif;font-size:.72rem;font-weight:600;cursor:pointer;transition:all .2s;text-transform:uppercase;}
+  .alpha-btn:hover,.alpha-btn.active{background:var(--olive-mid);border-color:var(--olive-mid);color:var(--beige);}
+  .glossary-group{margin-bottom:28px;}
+  .glossary-letter{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--olive-light);border-bottom:1px solid rgba(143,168,112,.2);padding-bottom:8px;margin-bottom:14px;}
+  .glossary-term{border:1px solid rgba(237,228,204,.08);border-radius:10px;margin-bottom:10px;overflow:hidden;cursor:pointer;transition:border-color .2s;}
+  .glossary-term:hover{border-color:rgba(143,168,112,.3);}
+  .glossary-term-header{padding:16px 20px;display:flex;justify-content:space-between;align-items:center;background:rgba(237,228,204,.03);}
+  .glossary-term-header h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--beige);}
+  .glossary-term-header .gtag{font-size:.62rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:3px;background:rgba(143,168,112,.15);color:var(--olive-light);}
+  .glossary-term-header .gtag.maple{background:rgba(192,57,43,.15);color:var(--maple-soft);}
+  .glossary-term-header .chevron{color:rgba(237,228,204,.25);font-size:.9rem;transition:transform .25s;flex-shrink:0;margin-left:12px;}
+  .glossary-term.open .chevron{transform:rotate(180deg);}
+  .glossary-term-body{display:none;padding:0 20px 18px;font-size:.86rem;color:rgba(237,228,204,.5);line-height:1.75;font-weight:300;}
+  .glossary-term.open .glossary-term-body{display:block;}
+  .glossary-term-body strong{color:var(--beige);font-weight:500;}
+  .glossary-count{font-size:.78rem;color:rgba(237,228,204,.25);margin-bottom:20px;}
+  .no-results{text-align:center;padding:60px 0;color:rgba(237,228,204,.2);font-size:.9rem;}
+
+  /* Budget / Journal (kept from before) */
+  .calc-body{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  .calc-inputs{display:flex;flex-direction:column;}
+  .calc-results{display:flex;flex-direction:column;gap:16px;}
+  .results-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--beige);margin-bottom:4px;}
+  .result-bar-wrap{display:flex;flex-direction:column;gap:10px;}
+  .result-item{display:flex;flex-direction:column;gap:6px;}
+  .result-item-header{display:flex;justify-content:space-between;align-items:center;}
+  .ri-label{font-size:.76rem;font-weight:500;letter-spacing:.8px;text-transform:uppercase;color:rgba(237,228,204,.5);}
+  .ri-val{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--beige);}
+  .ri-val.maple{color:var(--maple-soft);}.ri-val.olive{color:var(--olive-light);}.ri-val.gold{color:#d4a843;}.ri-val.blue{color:#7ab8d4;}
+  .bar-needs{background:var(--maple);}.bar-savings{background:#d4a843;}.bar-invest{background:var(--olive-light);}.bar-tfsa{background:#7ab8d4;}
+  .journal-form{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px;}
+  .journal-group label{display:block;font-size:.72rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(237,228,204,.45);margin-bottom:8px;}
+  .journal-output{display:none;margin-top:28px;}.journal-output.visible{display:block;}
+  .journal-card{background:rgba(237,228,204,.05);border:1px solid rgba(143,168,112,.2);border-radius:12px;padding:28px;}
+  .journal-greeting{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--beige);margin-bottom:6px;}
+  .journal-subtitle{font-size:.8rem;color:rgba(237,228,204,.35);margin-bottom:24px;font-weight:300;}
+  .journal-allocations{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
+  .alloc-card{background:rgba(237,228,204,.04);border-radius:10px;padding:18px 14px;text-align:center;border:1px solid rgba(237,228,204,.08);transition:all .25s;}
+  .alloc-card:hover{border-color:rgba(143,168,112,.3);transform:translateY(-2px);}
+  .alloc-icon{font-size:1.6rem;margin-bottom:8px;}
+  .alloc-pct{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--beige);line-height:1;margin-bottom:4px;}
+  .alloc-label{font-size:.68rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(237,228,204,.4);margin-bottom:4px;}
+  .alloc-amount{font-size:.82rem;color:var(--olive-light);font-weight:500;}
+  .journal-advice{display:flex;flex-direction:column;gap:14px;}
+  .advice-item{display:flex;gap:14px;align-items:flex-start;padding:16px;background:rgba(237,228,204,.03);border-radius:8px;border-left:2px solid var(--olive-mid);}
+  .advice-item.maple-advice{border-left-color:var(--maple);}.advice-item.gold-advice{border-left-color:#d4a843;}
+  .advice-icon{font-size:1.2rem;flex-shrink:0;margin-top:2px;}
+  .advice-text{font-size:.84rem;color:rgba(237,228,204,.55);line-height:1.7;font-weight:300;}
+  .advice-text strong{color:var(--beige);font-weight:500;}
+
+  /* ABOUT */
+  #about{padding:96px 64px;background:var(--olive);position:relative;overflow:hidden;}
+  #about::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ede4cc' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+  .about-inner{max-width:1200px;margin:0 auto;position:relative;}
+  .dhruv-quote-block{border-left:3px solid var(--maple);padding:28px 36px;margin-bottom:64px;background:rgba(237,228,204,.04);border-radius:0 10px 10px 0;}
+  .dhruv-quote-block blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.5vw,2rem);font-style:italic;font-weight:600;color:var(--beige);line-height:1.4;margin-bottom:14px;}
+  .dhruv-quote-block blockquote em{color:var(--olive-light);font-style:normal;}
+  .dhruv-quote-attribution{font-size:.76rem;color:rgba(237,228,204,.3);display:flex;align-items:center;gap:10px;}
+  .dhruv-quote-attribution::before{content:'';display:block;width:22px;height:1px;background:var(--maple);}
+  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:64px;}
+  .story-text p{font-size:.93rem;color:rgba(237,228,204,.5);line-height:1.85;margin-bottom:16px;font-weight:300;}
+  .story-text p strong{color:var(--beige);font-weight:500;}
+  .story-text p .highlight{color:var(--olive-light);font-weight:500;}
+  .story-aside{display:flex;flex-direction:column;gap:16px;}
+  .aside-card{background:rgba(237,228,204,.05);border:1px solid rgba(237,228,204,.09);border-radius:10px;padding:22px;transition:all .25s;}
+  .aside-card:hover{border-color:rgba(143,168,112,.3);}
+  .aside-card-icon{font-size:1.3rem;margin-bottom:8px;}
+  .aside-card h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--beige);margin-bottom:5px;}
+  .aside-card p{font-size:.79rem;color:rgba(237,228,204,.38);line-height:1.65;font-weight:300;}
+  .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:64px;}
+  .value-card{background:rgba(237,228,204,.05);border:1px solid rgba(237,228,204,.09);border-radius:10px;padding:26px 22px;transition:all .25s;}
+  .value-card:hover{border-color:rgba(143,168,112,.3);transform:translateY(-3px);}
+  .value-icon{font-size:1.7rem;margin-bottom:12px;}
+  .value-card h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--beige);margin-bottom:7px;}
+  .value-card p{font-size:.83rem;color:rgba(237,228,204,.4);line-height:1.7;font-weight:300;}
+  .disclaimer-block{background:rgba(192,57,43,.07);border:1px solid rgba(192,57,43,.2);border-radius:10px;padding:28px;text-align:center;margin-bottom:64px;}
+  .disclaimer-block p{font-size:.83rem;color:rgba(237,228,204,.35);line-height:1.72;max-width:600px;margin:0 auto;font-weight:300;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+  .contact-info h2{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--beige);margin-bottom:12px;letter-spacing:-.5px;}
+  .contact-info p{font-size:.9rem;color:rgba(237,228,204,.45);line-height:1.78;font-weight:300;margin-bottom:16px;}
+  .contact-detail{font-size:.8rem;color:var(--olive-light);}
+  .contact-form{display:flex;flex-direction:column;gap:12px;}
+  .contact-form input,.contact-form textarea{padding:12px 16px;border-radius:6px;border:1px solid rgba(237,228,204,.12);background:rgba(237,228,204,.05);font-family:'Jost',sans-serif;font-size:.88rem;color:var(--beige);outline:none;transition:border-color .2s;}
+  .contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(237,228,204,.22);}
+  .contact-form input:focus,.contact-form textarea:focus{border-color:var(--olive-mid);}
+  .contact-form textarea{min-height:110px;resize:vertical;}
+
+  /* NEWSLETTER */
+  #newsletter{background:var(--dark);padding:96px 64px;text-align:center;position:relative;overflow:hidden;}
+  #newsletter::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%238fa870' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+  .newsletter-inner{position:relative;max-width:580px;margin:0 auto;}
+  .newsletter-eyebrow{font-size:.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--olive-light);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:10px;}
+  .newsletter-eyebrow::before,.newsletter-eyebrow::after{content:'';display:block;width:22px;height:1px;background:var(--olive-light);}
+  #newsletter h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:700;color:var(--beige);margin-bottom:12px;letter-spacing:-.5px;line-height:1.1;}
+  #newsletter p{color:rgba(237,228,204,.45);font-size:.93rem;margin-bottom:32px;font-weight:300;line-height:1.72;}
+  .newsletter-form{display:flex;gap:10px;max-width:460px;margin:0 auto 14px;}
+  .newsletter-form input{flex:1;padding:14px 18px;border-radius:4px;border:1px solid rgba(237,228,204,.18);background:rgba(237,228,204,.06);color:var(--beige);font-family:'Jost',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s;}
+  .newsletter-form input::placeholder{color:rgba(237,228,204,.25);}
+  .newsletter-form input:focus{border-color:var(--olive-light);}
+  .newsletter-form button{background:var(--maple);color:#fff;border:none;padding:14px 24px;border-radius:4px;font-family:'Jost',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.8px;text-transform:uppercase;cursor:pointer;transition:all .2s;white-space:nowrap;}
+  .newsletter-form button:hover{background:var(--maple-soft);transform:translateY(-1px);}
+  .newsletter-note{font-size:.7rem;color:rgba(237,228,204,.2);}
+
+  /* FOOTER */
+  footer{background:#0e0f09;padding:60px 64px 32px;border-top:1px solid rgba(143,168,112,.08);}
+  .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(143,168,112,.07);margin-bottom:24px;}
+  .footer-brand p{font-size:.78rem;color:rgba(237,228,204,.22);line-height:1.68;max-width:210px;}
+  .footer-by{font-size:.7rem;color:var(--olive-light);margin-top:8px;}
+  .footer-links h4{color:var(--olive-light);font-size:.62rem;font-weight:600;text-transform:uppercase;letter-spacing:1.6px;margin-bottom:14px;}
+  .footer-links ul{list-style:none;}
+  .footer-links li{margin-bottom:9px;}
+  .footer-links a{color:rgba(237,228,204,.27);text-decoration:none;font-size:.8rem;transition:color .2s;cursor:pointer;}
+  .footer-links a:hover{color:var(--beige);}
+  .footer-bottom{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;font-size:.7rem;color:rgba(237,228,204,.16);flex-wrap:wrap;gap:12px;}
+  .footer-disclaimer{font-size:.66rem;max-width:500px;line-height:1.58;}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+  .reveal-d1{transition-delay:.12s;}.reveal-d2{transition-delay:.24s;}
+
+  /* RESPONSIVE */
+  @media(max-width:960px){
+    nav,nav.scrolled{padding:15px 24px;}
+    .nav-links{display:none;}.hamburger{display:flex;}
+    #home{padding:100px 24px 60px;}.hero-stats,.hero-watermark{display:none;}
+    .dhruv-banner{padding:40px 24px;flex-direction:column;}.dhruv-signature{display:none;}
+    .why{padding:70px 24px;}.why-inner{grid-template-columns:1fr;gap:36px;}
+    #articles{padding:70px 24px;}.articles-grid{grid-template-columns:1fr;}
+    .featured-card{grid-column:span 1;grid-template-columns:1fr;}.featured-card .article-thumb{height:150px;}
+    #tools{padding:70px 24px;}
+    .tool-grid,.calc-body{grid-template-columns:1fr;gap:28px;}
+    .journal-form,.tfsa-inputs{grid-template-columns:1fr;}
+    .journal-allocations{grid-template-columns:1fr 1fr;}
+    .compound-breakdown{grid-template-columns:1fr 1fr;}
+    .tfsa-year-grid{grid-template-columns:repeat(3,1fr);}
+    .tfsa-summary-grid{grid-template-columns:1fr 1fr;}
+    #about{padding:70px 24px;}.story-grid{grid-template-columns:1fr;gap:32px;margin-bottom:48px;}
+    .values-grid{grid-template-columns:1fr;margin-bottom:48px;}.contact-grid{grid-template-columns:1fr;gap:32px;}
+    .disclaimer-block{margin-bottom:48px;}
+    #newsletter{padding:70px 24px;}.newsletter-form{flex-direction:column;}
+    footer{padding:52px 24px 28px;}.footer-inner{flex-direction:column;}.footer-bottom{flex-direction:column;}
+    .divider{margin:0 24px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <span class="logo" onclick="goTo('home')">Invest with Dhruv 🍁</span>
+  <ul class="nav-links">
+    <li><a id="nav-home" class="active" onclick="goTo('home')">Home</a></li>
+    <li><a id="nav-articles" onclick="goTo('articles')">Articles</a></li>
+    <li><a id="nav-tools" onclick="goTo('tools')">Tools</a></li>
+    <li><a id="nav-glossary" onclick="goTo('tools');switchTool('glossary')">Glossary</a></li>
+    <li><a id="nav-about" onclick="goTo('about')">About</a></li>
+    <li><a onclick="goTo('newsletter')" class="nav-cta">Newsletter</a></li>
+  </ul>
+  <div class="hamburger" onclick="openMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMenu()">✕</button>
+  <a onclick="goTo('home');closeMenu()">Home</a>
+  <a onclick="goTo('articles');closeMenu()">Articles</a>
+  <a onclick="goTo('tools');closeMenu()">Tools</a>
+  <a onclick="goTo('tools');switchTool('glossary');closeMenu()">Glossary</a>
+  <a onclick="goTo('about');closeMenu()">About</a>
+  <a onclick="goTo('newsletter');closeMenu()">Newsletter</a>
+</div>
+
+<!-- ══ HOME ══ -->
+<section id="home">
+  <div class="hero-grid"></div><div class="hero-glow"></div>
+  <div class="hero-watermark">🍁</div>
+  <div class="hero-content">
+    <div class="hero-flag">🇨🇦 Built for Canadians · Alberta Proud</div>
+    <h1>Your money.<br>Your future.<br><em>Finally</em><br><span class="maple-word">understood.</span></h1>
+    <p class="hero-sub">Investing education for Canadians who want to make confident, informed decisions — plain language, real tools, built right here in Alberta.</p>
+    <div class="hero-dhruv-line">Curated by <strong>Dhruv Sharma</strong> · Self-taught investor · Alberta, Canada</div>
+    <div class="hero-actions">
+      <button class="btn-maple" onclick="goTo('articles')">Start Learning Free →</button>
+      <button class="btn-olive" onclick="goTo('tools')">Try the Tools</button>
+      <button class="btn-ghost" onclick="goTo('about')">Meet Dhruv</button>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">100<span>%</span></div><div class="stat-label">Free Forever</div></div>
+    <div class="stat"><div class="stat-num">🇨🇦</div><div class="stat-label">Canada First</div></div>
+    <div class="stat"><div class="stat-num">$0</div><div class="stat-label">To Get Started</div></div>
+  </div>
+</section>
+
+<div class="dhruv-banner reveal">
+  <div>
+    <div class="dhruv-label">A note from Dhruv</div>
+    <h2>"The more you understand your money, the better every financial decision you make — with or without a professional."</h2>
+    <p>The investing world can feel overwhelming at first. I spent years cutting through the noise so I could share a clear, honest foundation. Whether you work with an advisor or go it alone, knowledge is always your greatest asset.</p>
+  </div>
+  <div class="dhruv-signature">Dhruv Sharma</div>
+</div>
+
+<section class="why reveal">
+  <div class="why-inner">
+    <div>
+      <div class="section-eyebrow">Why Invest With Dhruv</div>
+      <h2 class="section-title">Investing knowledge that puts you in the driver's seat.</h2>
+      <p class="section-sub">TFSAs, FHSAs, RRSPs, ETFs — Canada's investing landscape is full of powerful tools most people don't fully understand yet. We change that, one article at a time.</p>
+      <div class="canada-box">
+        <div class="canada-title">🇨🇦 Canada-Specific Guidance</div>
+        <p>Most investing content online is built for Americans. <strong>Invest With Dhruv is written specifically for Canadians, covering the accounts, strategies, and rules that actually apply to you.</strong></p>
+      </div>
+    </div>
+    <div class="why-cards">
+      <div class="why-card"><div class="why-card-icon">📚</div><h3>No Background Needed</h3><p>Every concept explained from zero. Curiosity and a willingness to learn is enough.</p></div>
+      <div class="why-card"><div class="why-card-icon">🎯</div><h3>Empowered Decisions</h3><p>Understanding the fundamentals makes every financial conversation and decision better.</p></div>
+      <div class="why-card"><div class="why-card-icon">⏱️</div><h3>Years of Research, Distilled</h3><p>Dhruv spent years in the research trenches so you can skip straight to what matters.</p></div>
+      <div class="why-card"><div class="why-card-icon">🌿</div><h3>Built for Alberta</h3><p>Alberta-specific context — including the tax advantages that make certain strategies especially powerful here.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ ARTICLES ══ -->
+<section id="articles">
+  <div class="articles-inner">
+    <div class="reveal">
+      <div class="section-eyebrow maple-eye">Knowledge Base</div>
+      <h2 class="section-title">Everything you need.<br>Nothing you don't.</h2>
+      <p class="section-sub">Canadian-focused guides — from opening your first TFSA to building a complete ETF portfolio.</p>
+    </div>
+    <div class="filters reveal reveal-d1">
+      <button class="filter-btn active" onclick="filterArticles('all',this)">All</button>
+      <button class="filter-btn maple-filter" onclick="filterArticles('canada',this)">🇨🇦 Canada</button>
+      <button class="filter-btn" onclick="filterArticles('basics',this)">Basics</button>
+      <button class="filter-btn" onclick="filterArticles('accounts',this)">Accounts</button>
+      <button class="filter-btn" onclick="filterArticles('strategy',this)">Strategy</button>
+      <button class="filter-btn" onclick="filterArticles('stocks',this)">Stocks & ETFs</button>
+      <button class="filter-btn" onclick="filterArticles('budgeting',this)">Budgeting</button>
+    </div>
+    <div class="articles-grid reveal reveal-d2" id="articlesGrid">
+      <div class="article-card featured-card canada-article" data-category="canada">
+        <div class="article-thumb t6">🇨🇦</div>
+        <div class="article-body">
+          <div class="article-tag maple-tag">🇨🇦 Canada · Featured</div>
+          <h3>The Complete Canadian Student's Guide to Investing in 2025</h3>
+          <p>TFSAs, RRSPs, FHSAs, ETFs — every account and strategy a Canadian needs, explained in plain language from the ground up.</p>
+          <div class="article-meta">18 min read · By Dhruv Sharma</div>
+        </div>
+      </div>
+      <div class="article-card canada-article" data-category="canada accounts">
+        <div class="article-thumb t1">💳</div>
+        <div class="article-body"><div class="article-tag maple-tag">🇨🇦 Canada</div><h3>TFSA vs RRSP vs FHSA: Which Account First?</h3><p>Canada's registered accounts are powerful — knowing which to prioritize makes a real difference.</p><div class="article-meta">9 min read</div></div>
+      </div>
+      <div class="article-card canada-article" data-category="canada accounts">
+        <div class="article-thumb t2">🏦</div>
+        <div class="article-body"><div class="article-tag maple-tag">🇨🇦 Canada</div><h3>Canadian Brokers Explained: Questrade, Wealthsimple & Beyond</h3><p>A clear look at your self-directed investing options in Canada — costs, features, and who each suits best.</p><div class="article-meta">10 min read</div></div>
+      </div>
+      <div class="article-card" data-category="basics">
+        <div class="article-thumb t3">📊</div>
+        <div class="article-body"><div class="article-tag">Basics</div><h3>How to Start Investing With Just $50</h3><p>You don't need a large sum. Here's how to take your first real step with what you have today.</p><div class="article-meta">5 min read</div></div>
+      </div>
+      <div class="article-card" data-category="stocks">
+        <div class="article-thumb t4">📈</div>
+        <div class="article-body"><div class="article-tag">Stocks & ETFs</div><h3>What Is an ETF and Why Do Canadian Investors Love Them?</h3><p>Index ETFs are one of the most accessible, low-cost tools available. Here's exactly how they work.</p><div class="article-meta">7 min read</div></div>
+      </div>
+      <div class="article-card" data-category="strategy">
+        <div class="article-thumb t5">🔁</div>
+        <div class="article-body"><div class="article-tag">Strategy</div><h3>Dollar-Cost Averaging: A Strategy That Works With Your Emotions</h3><p>Invest a fixed amount regularly and let time — not timing — do the heavy lifting.</p><div class="article-meta">6 min read</div></div>
+      </div>
+      <div class="article-card" data-category="budgeting">
+        <div class="article-thumb t2">🧮</div>
+        <div class="article-body"><div class="article-tag">Budgeting</div><h3>A Student Budget That Actually Leaves Room to Invest</h3><p>Tuition, rent, groceries — and still building wealth. A practical framework for making it all fit.</p><div class="article-meta">8 min read</div></div>
+      </div>
+      <div class="article-card" data-category="basics">
+        <div class="article-thumb t1">📉</div>
+        <div class="article-body"><div class="article-tag">Basics</div><h3>Market Downturns: What They Mean and How to Stay Calm</h3><p>Every investor faces volatility. Here's the perspective that keeps long-term investors on track.</p><div class="article-meta">6 min read</div></div>
+      </div>
+      <div class="article-card canada-article" data-category="canada strategy">
+        <div class="article-thumb t6">🌿</div>
+        <div class="article-body"><div class="article-tag maple-tag">🇨🇦 Canada</div><h3>How to Build a Simple Canadian ETF Portfolio From Scratch</h3><p>A three-fund portfolio, built inside a TFSA, using a self-directed account. Step by step from Dhruv.</p><div class="article-meta">12 min read · By Dhruv Sharma</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ TOOLS ══ -->
+<section id="tools">
+  <div class="tools-inner">
+    <div class="tools-header reveal">
+      <div class="section-eyebrow light">Canadian Financial Tools</div>
+      <h2 class="section-title light">Five tools.<br>One goal: clarity.</h2>
+      <p class="section-sub" style="color:rgba(237,228,204,.45)">From budgeting to compound growth to TFSA tracking — practical tools built specifically for Canadian investors.</p>
+    </div>
+
+    <div class="tool-tabs reveal reveal-d1">
+      <button class="tool-tab active" onclick="switchTool('budget')">🧮 Budget Calculator</button>
+      <button class="tool-tab" onclick="switchTool('compound')">📈 Compound Interest</button>
+      <button class="tool-tab" onclick="switchTool('tfsa')">💳 TFSA Tracker</button>
+      <button class="tool-tab" onclick="switchTool('journal')">📓 Investment Journal</button>
+      <button class="tool-tab" onclick="switchTool('glossary')">📖 Glossary</button>
+    </div>
+
+    <!-- ── 1. BUDGET ── -->
+    <div class="tool-panel active" id="panel-budget">
+      <div class="tool-card reveal reveal-d2">
+        <div class="tool-card-header"><h3>🧮 Canadian Budget Calculator</h3><span>Monthly Income Breakdown</span></div>
+        <div class="tool-body">
+          <div class="calc-body">
+            <div class="calc-inputs">
+              <div class="input-group"><label>Monthly Take-Home Income (After Tax)</label><div class="input-row"><span class="input-prefix">$</span><input class="tool-input" id="income" type="number" placeholder="e.g. 2500" min="0"></div></div>
+              <div class="input-group"><label>Rent / Housing</label><div class="input-row"><span class="input-prefix">$</span><input class="tool-input" id="rent" type="number" placeholder="e.g. 900" min="0"></div></div>
+              <div class="input-group"><label>Food & Groceries</label><div class="input-row"><span class="input-prefix">$</span><input class="tool-input" id="food" type="number" placeholder="e.g. 400" min="0"></div></div>
+              <div class="input-group"><label>Transportation</label><div class="input-row"><span class="input-prefix">$</span><input class="tool-input" id="transport" type="number" placeholder="e.g. 150" min="0"></div></div>
+              <div class="input-group"><label>Subscriptions & Entertainment</label><div class="input-row"><span class="input-prefix">$</span><input class="tool-input" id="subscriptions" type="number" placeholder="e.g. 100" min="0"></div></div>
+              <div class="input-group"><label>Other Monthly Expenses</label><div class="input-row"><span class="input-prefix">$</span><input class="tool-input" id="other" type="number" placeholder="e.g. 200" min="0"></div></div>
+              <button class="tool-btn" onclick="calcBudget()">Calculate My Budget →</button>
+            </div>
+            <div class="calc-results" id="budgetResults">
+              <div class="results-placeholder" id="budgetPlaceholder"><div class="ph-icon">📊</div><p>Enter your income and expenses to see your breakdown</p></div>
+              <div id="budgetContent" style="display:none">
+                <div class="results-title">Your Monthly Breakdown</div>
+                <div class="result-bar-wrap">
+                  <div class="result-item"><div class="result-item-header"><span class="ri-label">Total Expenses</span><span class="ri-val maple" id="b-expenses">$0</span></div><div class="bar-track"><div class="bar-fill bar-needs" id="bb-expenses"></div></div></div>
+                  <div class="result-item"><div class="result-item-header"><span class="ri-label">Emergency Savings (10%)</span><span class="ri-val gold" id="b-savings">$0</span></div><div class="bar-track"><div class="bar-fill bar-savings" id="bb-savings"></div></div></div>
+                  <div class="result-item"><div class="result-item-header"><span class="ri-label">Available to Invest</span><span class="ri-val olive" id="b-invest">$0</span></div><div class="bar-track"><div class="bar-fill bar-invest" id="bb-invest"></div></div></div>
+                  <div class="result-item"><div class="result-item-header"><span class="ri-label">Suggested TFSA Contribution</span><span class="ri-val blue" id="b-tfsa">$0</span></div><div class="bar-track"><div class="bar-fill bar-tfsa" id="bb-tfsa"></div></div></div>
+                </div>
+                <p class="result-note" id="b-note"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 2. COMPOUND INTEREST ── -->
+    <div class="tool-panel" id="panel-compound">
+      <div class="tool-card reveal">
+        <div class="tool-card-header"><h3>📈 Compound Interest Calculator</h3><span>Watch Your Money Grow</span></div>
+        <div class="tool-body">
+          <div class="tool-grid">
+            <div>
+              <div class="input-group"><label>Monthly Contribution</label><div class="input-row"><span class="input-prefix">$</span><input class="tool-input" id="ci-monthly" type="number" placeholder="e.g. 200" min="0"></div></div>
+              <div class="input-group"><label>Starting Amount (optional)</label><div class="input-row"><span class="input-prefix">$</span><input class="tool-input" id="ci-start" type="number" placeholder="e.g. 1000" min="0"></div></div>
+              <div class="input-group"><label>Annual Return Rate (%)</label><div class="input-row"><span class="input-prefix">%</span><input class="tool-input" id="ci-rate" type="number" placeholder="e.g. 7" min="0" max="30" step="0.1"></div></div>
+              <div class="input-group"><label>Number of Years</label><div class="input-row"><span class="input-prefix">Yrs</span><input class="tool-input" id="ci-years" type="number" placeholder="e.g. 25" min="1" max="50"></div></div>
+              <div class="input-group"><label>Compound Frequency</label>
+                <select class="tool-select" id="ci-freq">
+                  <option value="12">Monthly</option>
+                  <option value="4">Quarterly</option>
+                  <option value="1">Annually</option>
+                </select>
+              </div>
+              <button class="tool-btn" onclick="calcCompound()">Calculate Growth →</button>
+            </div>
+            <div id="compoundResults">
+              <div class="results-placeholder" id="compoundPlaceholder"><div class="ph-icon">📈</div><p>Enter your details to see how your money grows over time</p></div>
+              <div id="compoundContent" style="display:none">
+                <div class="big-result">
+                  <div class="result-label">Total Portfolio Value</div>
+                  <div class="result-value olive" id="ci-total">$0</div>
+                  <div style="font-size:.75rem;color:rgba(237,228,204,.3)" id="ci-subtitle"></div>
+                </div>
+                <div class="compound-breakdown">
+                  <div class="cb-item"><div class="result-label">Total Contributed</div><div class="result-value gold" id="ci-contributed">$0</div></div>
+                  <div class="cb-item"><div class="result-label">Interest Earned</div><div class="result-value maple" id="ci-interest">$0</div></div>
+                </div>
+                <div class="chart-wrap">
+                  <div class="result-label" style="margin-bottom:10px">Growth Over Time</div>
+                  <div class="chart-bars" id="ci-chart"></div>
+                  <div class="chart-labels" id="ci-chart-labels"></div>
+                </div>
+                <p class="result-note" id="ci-note"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 3. TFSA TRACKER ── -->
+    <div class="tool-panel" id="panel-tfsa">
+      <div class="tool-card reveal">
+        <div class="tool-card-header"><h3>💳 TFSA Contribution Room Tracker</h3><span>Canadian Accounts · 2009–2025</span></div>
+        <div class="tool-body">
+          <div class="tfsa-inputs">
+            <div class="input-group"><label>Year You Turned 18 (or 2009 if earlier)</label>
+              <select class="tool-select" id="tfsa-start-year">
+                <option value="">Select year...</option>
+              </select>
+            </div>
+            <div class="input-group"><label>Total Amount Contributed So Far</label><div class="input-row"><span class="input-prefix">$</span><input class="tool-input" id="tfsa-contributed" type="number" placeholder="e.g. 15000" min="0"></div></div>
+            <div class="input-group"><label>Total Amount Withdrawn (lifetime)</label><div class="input-row"><span class="input-prefix">$</span><input class="tool-input" id="tfsa-withdrawn" type="number" placeholder="e.g. 0" min="0"></div></div>
+            <div class="input-group" style="display:flex;align-items:flex-end">
+              <button class="tool-btn olive-btn" onclick="calcTFSA()" style="margin-top:0">Calculate My Room →</button>
+            </div>
+          </div>
+          <div id="tfsaResults">
+            <div class="results-placeholder" id="tfsaPlaceholder"><div class="ph-icon">💳</div><p>Enter your details to see your available TFSA room</p></div>
+            <div id="tfsaContent" style="display:none">
+              <div class="tfsa-summary">
+                <div class="tfsa-summary-grid">
+                  <div><div class="result-label">Lifetime Room Accumulated</div><div class="result-value blue" id="t-lifetime">$0</div></div>
+                  <div><div class="result-label">Net Contributions</div><div class="result-value gold" id="t-net">$0</div></div>
+                  <div><div class="result-label">Available Room</div><div class="result-value olive" id="t-available">$0</div></div>
+                </div>
+              </div>
+              <div id="t-warning" class="tfsa-warning" style="display:none"></div>
+              <div class="result-label" style="margin-bottom:12px;margin-top:4px">Annual Contribution Limits by Year</div>
+              <div class="tfsa-year-grid" id="t-year-grid"></div>
+              <p class="result-note" style="margin-top:8px">⚠️ TFSA withdrawn amounts are restored as contribution room in the following calendar year. This calculator uses federal annual limits — confirm your exact room with the CRA My Account portal.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 4. INVESTMENT JOURNAL ── -->
+    <div class="tool-panel" id="panel-journal">
+      <div class="tool-card reveal">
+        <div class="tool-card-header"><h3>📓 Investment Journal Advisor</h3><span>Personalized for Canadians</span></div>
+        <div class="tool-body">
+          <div class="journal-form">
+            <div class="journal-group"><label>Monthly Investable Amount</label><div class="input-row"><span class="input-prefix" style="background:rgba(237,228,204,.05);border-color:rgba(237,228,204,.12);color:rgba(237,228,204,.4)">$</span><input class="tool-input" id="j-amount" type="number" placeholder="e.g. 300" min="0" style="border-radius:0 6px 6px 0;border-left:none"></div></div>
+            <div class="journal-group"><label>Investing Goal</label><select class="tool-select" id="j-goal"><option value="">Select a goal...</option><option value="emergency">Build Emergency Fund First</option><option value="growth">Long-Term Wealth Growth</option><option value="home">Save for a Home (FHSA)</option><option value="retirement">Retirement Planning (RRSP)</option><option value="balanced">Balanced — A Bit of Everything</option></select></div>
+            <div class="journal-group"><label>Risk Comfort Level</label><select class="tool-select" id="j-risk"><option value="">Select comfort level...</option><option value="low">Low — I prefer stability</option><option value="medium">Medium — Some ups and downs are okay</option><option value="high">High — Focused on long-term growth</option></select></div>
+            <div class="journal-group"><label>Experience Level</label><select class="tool-select" id="j-experience"><option value="">Select experience...</option><option value="beginner">Complete Beginner</option><option value="some">Some Knowledge</option><option value="comfortable">Comfortable Investor</option></select></div>
+            <div class="journal-group"><label>Your Age</label><input class="tool-input solo" id="j-age" type="number" placeholder="e.g. 22" min="16" max="80"></div>
+            <div class="journal-group"><label>Province</label><select class="tool-select" id="j-province"><option value="">Select province...</option><option value="AB">Alberta</option><option value="ON">Ontario</option><option value="BC">British Columbia</option><option value="QC">Quebec</option><option value="other">Other Province</option></select></div>
+          </div>
+          <button class="tool-btn olive-btn" onclick="generateJournal()">Generate My Investment Journal →</button>
+          <div class="journal-output" id="journalOutput">
+            <div class="journal-card">
+              <div class="journal-greeting" id="j-greeting"></div>
+              <div class="journal-subtitle" id="j-subtitle"></div>
+              <div class="journal-allocations" id="j-allocations"></div>
+              <div class="journal-advice" id="j-advice"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 5. GLOSSARY ── -->
+    <div class="tool-panel" id="panel-glossary">
+      <div class="tool-card reveal">
+        <div class="tool-card-header"><h3>📖 Canadian Investing Glossary</h3><span>40+ Terms · Plain Language</span></div>
+        <div class="tool-body">
+          <div class="glossary-search-wrap">
+            <span class="search-icon">🔍</span>
+            <input class="glossary-search" id="glossarySearch" type="text" placeholder="Search a term... e.g. TFSA, ETF, dividend" oninput="filterGlossary()">
+          </div>
+          <div class="glossary-alpha" id="glossaryAlpha"></div>
+          <div class="glossary-count" id="glossaryCount"></div>
+          <div id="glossaryList"></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /tools-inner -->
+</section>
+
+<div class="divider" style="background:rgba(237,228,204,.08);margin:0"></div>
+
+<!-- ══ ABOUT ══ -->
+<section id="about">
+  <div class="about-inner">
+    <div class="reveal" style="margin-bottom:16px">
+      <div class="section-eyebrow light">Meet the founder</div>
+      <h2 class="section-title light" style="font-size:clamp(2.2rem,4vw,3.8rem)">Dhruv Sharma</h2>
+    </div>
+    <div class="dhruv-quote-block reveal reveal-d1">
+      <blockquote>"An informed investor makes better decisions — whether they're working with a financial advisor, doing it themselves, or somewhere in between. My goal is to give everyone that <em>foundation of knowledge.</em>"</blockquote>
+      <div class="dhruv-quote-attribution">Dhruv Sharma · Founder, Invest With Dhruv · Alberta, Canada</div>
+    </div>
+    <div class="story-grid reveal">
+      <div class="story-text">
+        <div class="section-eyebrow light" style="margin-bottom:20px">The Story</div>
+        <p>Like a lot of Canadians, I didn't grow up with a strong foundation in personal finance. <strong>Nobody explained TFSAs to me in school. Nobody walked me through what an ETF actually is.</strong> The information existed — it just wasn't organized, accessible, or built for the Canadian context.</p>
+        <p>Every time I searched for guidance, I found resources written for Americans — different accounts, different tax rules, different platforms. <span class="highlight">The Canadian experience was almost invisible online.</span></p>
+        <p>So I did the work myself. I spent years reading, researching, and testing ideas until I had a clear picture of what actually works for a regular Canadian investor. And then I thought — <strong>why should everyone have to figure this out alone?</strong></p>
+        <p>Invest With Dhruv is the resource I wish existed when I started — Canada-specific, clearly written, and designed so you can walk into any financial decision with genuine confidence.</p>
+      </div>
+      <div class="story-aside">
+        <div class="aside-card"><div class="aside-card-icon">🇨🇦</div><h4>Built for Canada</h4><p>TFSAs, RRSPs, FHSAs — everything here is built around Canadian tools, rules, and context.</p></div>
+        <div class="aside-card"><div class="aside-card-icon">🎓</div><h4>Education as Empowerment</h4><p>Understanding your investments makes you a better decision-maker — whether you self-direct or work with a professional.</p></div>
+        <div class="aside-card"><div class="aside-card-icon">⏳</div><h4>Years of Research, Summarized</h4><p>Dhruv did the digging so you don't have to. Every article reflects real research and real Canadian investing experience.</p></div>
+        <div class="aside-card"><div class="aside-card-icon">🌄</div><h4>Alberta Roots</h4><p>Written with an Alberta perspective — including the provincial tax advantages that make certain strategies especially compelling here.</p></div>
+      </div>
+    </div>
+    <div class="values-grid reveal">
+      <div class="value-card"><div class="value-icon">🎓</div><h3>Education First, Always</h3><p>This platform exists to teach. Every piece of content is written to build genuine understanding.</p></div>
+      <div class="value-card"><div class="value-icon">🔍</div><h3>Clarity Over Complexity</h3><p>Every concept is stripped down to its clearest form so that anyone, at any level, can walk away understanding it.</p></div>
+      <div class="value-card"><div class="value-icon">🤝</div><h3>Knowledge for Every Path</h3><p>Whether you invest on your own or work with an advisor, understanding the fundamentals helps you either way.</p></div>
+    </div>
+    <div class="disclaimer-block reveal">
+      <div class="section-eyebrow maple-eye center" style="margin-bottom:12px">Important Notice</div>
+      <p>Invest With Dhruv is an educational platform only. Nothing on this site constitutes personalized financial, legal, or investment advice. Always consult a licensed financial professional before making investment decisions. Investing involves risk, including the possible loss of principal.</p>
+    </div>
+    <div class="contact-grid reveal" id="contact">
+      <div class="contact-info">
+        <div class="section-eyebrow light">Get In Touch</div>
+        <h2>Have a question?<br>I'm here.</h2>
+        <p>Whether it's a topic you want covered, feedback on the site, or a question about your learning — Dhruv reads every message personally.</p>
+        <div class="contact-detail">📍 Alberta, Canada · Invest With Dhruv</div>
+      </div>
+      <form class="contact-form" onsubmit="handleContact(event)">
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="Your email" required>
+        <input type="text" placeholder="Subject">
+        <textarea placeholder="Your message to Dhruv..."></textarea>
+        <button type="submit" class="btn-maple" style="align-self:flex-start">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NEWSLETTER ══ -->
+<section id="newsletter">
+  <div class="newsletter-inner">
+    <div class="newsletter-eyebrow">The Invest With Dhruv Letter</div>
+    <h2>Real investing insights.<br>Every week. Free.</h2>
+    <p>Join Canadian students and new investors getting Dhruv's weekly breakdown — accounts, market context, plain-English explainers, and wealth-building concepts delivered to your inbox.</p>
+    <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe Free 🍁</button>
+    </form>
+    <p class="newsletter-note">For Canadians. No spam. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo" onclick="goTo('home')" style="cursor:pointer;font-size:1.4rem;display:block;margin-bottom:12px">Invest with Dhruv 🍁</span>
+      <p>Canada's student investing resource. Built by Dhruv Sharma so every Canadian can invest with clarity and confidence.</p>
+      <div class="footer-by">By Dhruv Sharma · Alberta, Canada</div>
+    </div>
+    <div class="footer-links"><h4>Navigate</h4><ul><li><a onclick="goTo('home')">Home</a></li><li><a onclick="goTo('articles')">Articles</a></li><li><a onclick="goTo('tools')">Tools</a></li><li><a onclick="goTo('about')">About Dhruv</a></li><li><a onclick="goTo('newsletter')">Newsletter</a></li></ul></div>
+    <div class="footer-links"><h4>🇨🇦 Topics</h4><ul><li><a onclick="goTo('articles')">TFSA Guide</a></li><li><a onclick="goTo('articles')">RRSP vs FHSA</a></li><li><a onclick="goTo('articles')">Canadian ETFs</a></li><li><a onclick="goTo('articles')">Alberta Investing</a></li></ul></div>
+    <div class="footer-links"><h4>Tools</h4><ul><li><a onclick="goTo('tools');switchTool('budget')">Budget Calculator</a></li><li><a onclick="goTo('tools');switchTool('compound')">Compound Interest</a></li><li><a onclick="goTo('tools');switchTool('tfsa')">TFSA Tracker</a></li><li><a onclick="goTo('tools');switchTool('glossary')">Glossary</a></li></ul></div>
+    <div class="footer-links"><h4>Legal</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Use</a></li><li><a href="#">Disclaimer</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Invest With Dhruv · Dhruv Sharma · Alberta, Canada</span>
+    <p class="footer-disclaimer">Educational purposes only. Not financial advice. Always consult a licensed professional before making investment decisions.</p>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════
+// NAV & SCROLL
+// ═══════════════════════════════════
+function goTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'});}
+const sIds=['home','articles','tools','about','newsletter'];
+const nMap={home:'nav-home',articles:'nav-articles',tools:'nav-tools',about:'nav-about'};
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>60);
+  let cur='home';
+  sIds.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-140)cur=id;});
+  Object.keys(nMap).forEach(k=>document.getElementById(nMap[k])?.classList.toggle('active',k===cur));
+});
+function openMenu(){document.getElementById('mobileMenu').classList.add('open');document.body.style.overflow='hidden';}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');document.body.style.overflow='';}
+
+// ═══════════════════════════════════
+// TOOL TABS
+// ═══════════════════════════════════
+function switchTool(id){
+  document.querySelectorAll('.tool-tab').forEach((t,i)=>{
+    const panels=['budget','compound','tfsa','journal','glossary'];
+    t.classList.toggle('active',panels[i]===id);
+  });
+  document.querySelectorAll('.tool-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+id)?.classList.add('active');
+  if(id==='glossary') renderGlossary();
+}
+
+// ═══════════════════════════════════
+// ARTICLES FILTER
+// ═══════════════════════════════════
+function filterArticles(cat,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.article-card').forEach(c=>{
+    c.style.display=(cat==='all'||c.dataset.category.includes(cat))?'block':'none';
+  });
+}
+
+// ═══════════════════════════════════
+// 1. BUDGET CALCULATOR
+// ═══════════════════════════════════
+function calcBudget(){
+  const income=parseFloat(document.getElementById('income').value)||0;
+  if(!income){alert('Please enter your monthly income.');return;}
+  const rent=parseFloat(document.getElementById('rent').value)||0;
+  const food=parseFloat(document.getElementById('food').value)||0;
+  const trans=parseFloat(document.getElementById('transport').value)||0;
+  const subs=parseFloat(document.getElementById('subscriptions').value)||0;
+  const other=parseFloat(document.getElementById('other').value)||0;
+  const exp=rent+food+trans+subs+other;
+  const savings=income*0.10;
+  const investable=Math.max(income-exp-savings,0);
+  const tfsa=Math.round(investable*0.70);
+  document.getElementById('budgetPlaceholder').style.display='none';
+  document.getElementById('budgetContent').style.display='block';
+  document.getElementById('b-expenses').textContent='$'+fmt(exp);
+  document.getElementById('b-savings').textContent='$'+fmt(savings);
+  document.getElementById('b-invest').textContent='$'+fmt(investable);
+  document.getElementById('b-tfsa').textContent='$'+fmt(tfsa);
+  const m=income;
+  setTimeout(()=>{
+    document.getElementById('bb-expenses').style.width=pct(exp,m)+'%';
+    document.getElementById('bb-savings').style.width=pct(savings,m)+'%';
+    document.getElementById('bb-invest').style.width=pct(investable,m)+'%';
+    document.getElementById('bb-tfsa').style.width=pct(tfsa,m)+'%';
+  },80);
+  let note='';
+  if(income-exp<0) note='⚠️ Your expenses exceed your income. Look for areas to reduce before investing.';
+  else if(investable<50) note='💡 Even $25/month inside a TFSA compounds meaningfully over time. Starting small is still starting.';
+  else if(investable>=500) note='🌿 Strong position! Max your TFSA first, then explore RRSP or FHSA depending on your goals.';
+  else note='🍁 Solid start! Directing your investable amount into a TFSA is the most flexible first step for most Canadians.';
+  document.getElementById('b-note').textContent=note;
+}
+
+// ═══════════════════════════════════
+// 2. COMPOUND INTEREST CALCULATOR
+// ═══════════════════════════════════
+function calcCompound(){
+  const monthly=parseFloat(document.getElementById('ci-monthly').value)||0;
+  const start=parseFloat(document.getElementById('ci-start').value)||0;
+  const rate=parseFloat(document.getElementById('ci-rate').value)||0;
+  const years=parseInt(document.getElementById('ci-years').value)||0;
+  const freq=parseInt(document.getElementById('ci-freq').value)||12;
+  if(!monthly&&!start){alert('Enter a monthly contribution or starting amount.');return;}
+  if(!years){alert('Enter number of years.');return;}
+  if(!rate){alert('Enter an expected annual return rate.');return;}
+
+  const r=rate/100/freq;
+  const n=years*freq;
+  const monthlyPerPeriod=monthly*(12/freq);
+
+  // FV of lump sum
+  const fvLump=start*Math.pow(1+r,n);
+  // FV of annuity
+  const fvAnnuity=monthlyPerPeriod*(Math.pow(1+r,n)-1)/r;
+  const total=fvLump+fvAnnuity;
+  const contributed=start+(monthly*12*years);
+  const interest=total-contributed;
+
+  document.getElementById('compoundPlaceholder').style.display='none';
+  document.getElementById('compoundContent').style.display='block';
+  document.getElementById('ci-total').textContent='$'+fmt(total);
+  document.getElementById('ci-contributed').textContent='$'+fmt(contributed);
+  document.getElementById('ci-interest').textContent='$'+fmt(interest);
+  document.getElementById('ci-subtitle').textContent=`Over ${years} years at ${rate}% annual return`;
+
+  // Build chart — show every ~5yr interval, up to 10 bars
+  const barCount=Math.min(years,10);
+  const step=Math.ceil(years/barCount);
+  const bars=[];
+  const labels=[];
+  let maxVal=0;
+  for(let y=step;y<=years;y+=step){
+    const ni=y*freq;
+    const v=(start*Math.pow(1+r,ni))+(monthlyPerPeriod*(Math.pow(1+r,ni)-1)/r);
+    bars.push({y,v});
+    if(v>maxVal)maxVal=v;
+    labels.push('Yr '+y);
+  }
+  if(bars[bars.length-1].y!==years){
+    const v=total;bars.push({y:years,v});labels.push('Yr '+years);if(v>maxVal)maxVal=v;
+  }
+
+  const chartEl=document.getElementById('ci-chart');
+  chartEl.innerHTML=bars.map(b=>`<div class="chart-bar" style="height:${(b.v/maxVal)*100}%;background:linear-gradient(to top,var(--olive-mid),var(--olive-light))" data-tip="Yr ${b.y}: $${fmt(b.v)}"></div>`).join('');
+  document.getElementById('ci-chart-labels').innerHTML=labels.map(l=>`<span>${l}</span>`).join('');
+
+  const mult=(total/Math.max(contributed,1)).toFixed(1);
+  document.getElementById('ci-note').textContent=`💡 Your money grows to ${mult}× your total contributions. This is the power of compounding — the longer you stay invested, the more interest earns interest.`;
+}
+
+// ═══════════════════════════════════
+// 3. TFSA TRACKER
+// ═══════════════════════════════════
+// Official annual limits
+const TFSA_LIMITS={2009:5000,2010:5000,2011:5000,2012:5000,2013:5500,2014:5500,2015:10000,2016:5500,2017:5500,2018:5500,2019:6000,2020:6000,2021:6000,2022:6000,2023:6500,2024:7000,2025:7000};
+
+// Populate year dropdown
+(function(){
+  const sel=document.getElementById('tfsa-start-year');
+  for(let y=2009;y<=2025;y++){
+    const o=document.createElement('option');
+    o.value=y;o.textContent=y;
+    sel.appendChild(o);
+  }
+})();
+
+function calcTFSA(){
+  const startYear=parseInt(document.getElementById('tfsa-start-year').value)||0;
+  const contributed=parseFloat(document.getElementById('tfsa-contributed').value)||0;
+  const withdrawn=parseFloat(document.getElementById('tfsa-withdrawn').value)||0;
+  if(!startYear){alert('Please select the year you became eligible.');return;}
+
+  let lifetime=0;
+  const yearData=[];
+  for(let y=startYear;y<=2025;y++){
+    const lim=TFSA_LIMITS[y]||0;
+    lifetime+=lim;
+    yearData.push({year:y,limit:lim,cumulative:lifetime});
+  }
+
+  const netContrib=contributed-withdrawn;
+  const available=lifetime-netContrib;
+  const isOver=netContrib>lifetime;
+
+  document.getElementById('tfsaPlaceholder').style.display='none';
+  document.getElementById('tfsaContent').style.display='block';
+  document.getElementById('t-lifetime').textContent='$'+fmt(lifetime);
+  document.getElementById('t-net').textContent='$'+fmt(netContrib);
+  document.getElementById('t-available').textContent=(isOver?'-':'')+'$'+fmt(Math.abs(available));
+
+  const warnEl=document.getElementById('t-warning');
+  if(isOver){
+    warnEl.style.display='block';
+    warnEl.innerHTML=`<strong>⚠️ Potential Over-Contribution:</strong> Based on the numbers entered, you may have over-contributed by <strong>$${fmt(Math.abs(available))}</strong>. Over-contributions are taxed at 1% per month by the CRA. We strongly recommend verifying your exact room through the <strong>CRA My Account</strong> portal before making further contributions.`;
+  } else {
+    warnEl.style.display='none';
+  }
+
+  const grid=document.getElementById('t-year-grid');
+  grid.innerHTML=yearData.map(d=>`
+    <div class="tfsa-year has-room">
+      <div class="yr">${d.year}</div>
+      <div class="room">$${(d.limit/1000).toFixed(0)}K</div>
+    </div>
+  `).join('');
+
+  if(available>0){
+    document.getElementById('t-available').style.color='var(--olive-light)';
+  } else {
+    document.getElementById('t-available').style.color='var(--maple-soft)';
+  }
+}
+
+// ═══════════════════════════════════
+// 4. INVESTMENT JOURNAL
+// ═══════════════════════════════════
+function generateJournal(){
+  const amount=parseFloat(document.getElementById('j-amount').value)||0;
+  const goal=document.getElementById('j-goal').value;
+  const risk=document.getElementById('j-risk').value;
+  const exp=document.getElementById('j-experience').value;
+  const age=parseInt(document.getElementById('j-age').value)||0;
+  const prov=document.getElementById('j-province').value;
+  if(!amount||!goal||!risk||!exp||!age||!prov){alert('Please fill in all fields.');return;}
+
+  let allocs={};
+  if(goal==='emergency') allocs={savings:{p:60,i:'🏦',l:'Emergency Fund',c:'#d4a843'},tfsa:{p:25,i:'💳',l:'TFSA ETF',c:'#7ab8d4'},stocks:{p:10,i:'📈',l:'Stocks',c:'#8fa870'},bonds:{p:5,i:'🔒',l:'Bonds',c:'#c0392b'}};
+  else if(goal==='home') allocs={fhsa:{p:50,i:'🏠',l:'FHSA',c:'#c0392b'},tfsa:{p:30,i:'💳',l:'TFSA',c:'#7ab8d4'},savings:{p:15,i:'🏦',l:'HISA Savings',c:'#d4a843'},stocks:{p:5,i:'📈',l:'Stocks',c:'#8fa870'}};
+  else if(goal==='retirement') allocs={rrsp:{p:45,i:'🌅',l:'RRSP',c:'#d4a843'},tfsa:{p:35,i:'💳',l:'TFSA',c:'#7ab8d4'},stocks:{p:15,i:'📈',l:'Stocks/ETFs',c:'#8fa870'},savings:{p:5,i:'🏦',l:'Savings',c:'#c0392b'}};
+  else if(goal==='growth'&&risk==='high') allocs={tfsa:{p:40,i:'💳',l:'TFSA ETFs',c:'#7ab8d4'},stocks:{p:35,i:'📈',l:'Stocks',c:'#8fa870'},rrsp:{p:15,i:'🌅',l:'RRSP',c:'#d4a843'},savings:{p:10,i:'🏦',l:'Emergency',c:'#c0392b'}};
+  else allocs={tfsa:{p:40,i:'💳',l:'TFSA ETFs',c:'#7ab8d4'},savings:{p:25,i:'🏦',l:'Emergency',c:'#d4a843'},stocks:{p:20,i:'📈',l:'Stocks/ETFs',c:'#8fa870'},rrsp:{p:15,i:'🌅',l:'RRSP',c:'#c0392b'}};
+  if(risk==='low'&&allocs.stocks){allocs.stocks.p=Math.max(allocs.stocks.p-15,5);if(allocs.savings)allocs.savings.p+=15;}
+
+  const greet={emergency:"A solid emergency fund is the foundation everything else gets built on.",home:"Owning a home in Canada is a meaningful goal — and Canada now has an account built specifically for it.",retirement:"The earlier you begin, the less you need to contribute each month.",growth:"Long-term thinking is the single biggest edge any investor can have.",balanced:"A balanced approach, consistently applied, is one of the most sustainable strategies."};
+  document.getElementById('j-greeting').textContent=greet[goal]||'Here is your personalized plan.';
+  document.getElementById('j-subtitle').textContent=`Based on $${amount}/month · ${risk} risk · ${prov} · Age ${age} — by Dhruv Sharma`;
+  document.getElementById('j-allocations').innerHTML=Object.values(allocs).map(v=>`<div class="alloc-card"><div class="alloc-icon">${v.i}</div><div class="alloc-pct" style="color:${v.c}">${v.p}%</div><div class="alloc-label">${v.l}</div><div class="alloc-amount">$${Math.round(amount*v.p/100)}/mo</div></div>`).join('');
+
+  const advice=[];
+  if(goal==='home') advice.push({i:'🏠',c:'maple-advice',t:`<strong>The FHSA is one of the most powerful Canadian accounts introduced in recent years.</strong> Up to $8,000/year (lifetime max $40,000), tax-deductible like an RRSP, and tax-free on withdrawal for a first home. If you qualify, understanding this account thoroughly is worth the time.`});
+  if(goal==='retirement') advice.push({i:'🌅',c:'gold-advice',t:`<strong>RRSP contributions reduce your taxable income dollar-for-dollar.</strong> In Alberta, understanding exactly when to weight RRSP vs. TFSA contributions based on your income bracket is worth mapping out with a tax professional.`});
+  advice.push({i:'💳',c:'',t:`<strong>The TFSA is Canada's most flexible registered account.</strong> All growth is 100% tax-free, you can withdraw any time without penalty, and your contribution room is restored the following calendar year. For most Canadians starting out, the TFSA is the logical first account to focus on.`});
+  if(risk==='low') advice.push({i:'🛡️',c:'',t:`<strong>For a conservative risk profile, balanced ETFs like VBAL or XBAL</strong> provide a diversified mix of bonds and equities in a single fund — automatically rebalanced, low cost, and designed for investors who want growth without sharp volatility.`});
+  if(risk==='high') advice.push({i:'📈',c:'maple-advice',t:`<strong>With a long time horizon, all-equity ETFs like XEQT or VEQT are worth understanding.</strong> These single-fund solutions hold thousands of global stocks at very low cost and are the starting point for many growth-focused Canadian self-directed investors.`});
+  if(prov==='AB') advice.push({i:'🌄',c:'gold-advice',t:`<strong>Alberta's tax structure is genuinely advantageous for investors.</strong> No provincial sales tax and a flat provincial income tax rate means your after-tax dollars go further. Consistent TFSA and RRSP contributions are especially impactful here — worth reviewing annually with a tax professional.`});
+  if(exp==='beginner') advice.push({i:'🎓',c:'',t:`<strong>As a beginner, simplicity is a real advantage.</strong> A single all-in-one ETF — XEQT, VEQT, VBAL, or XBAL depending on risk comfort — gives you immediate diversification across thousands of global securities in one purchase. Set up automatic contributions and let time do the work.`});
+
+  document.getElementById('j-advice').innerHTML=advice.map(a=>`<div class="advice-item ${a.c}"><div class="advice-icon">${a.i}</div><div class="advice-text">${a.t}</div></div>`).join('');
+  const out=document.getElementById('journalOutput');
+  out.classList.add('visible');
+  setTimeout(()=>out.scrollIntoView({behavior:'smooth',block:'nearest'}),100);
+}
+
+// ═══════════════════════════════════
+// 5. GLOSSARY
+// ═══════════════════════════════════
+const TERMS=[
+  {t:'Asset Allocation',l:'Strategy',d:'The process of dividing investments among different asset categories — stocks, bonds, cash, and real estate. The right mix depends on your goals, time horizon, and risk tolerance. A common starting rule: subtract your age from 110 to find your rough equity percentage.'},
+  {t:'Asset Class',l:'Basics',d:'A group of investments with similar characteristics and behaviour. The main asset classes are equities (stocks), fixed income (bonds), cash and equivalents, and real assets (real estate, commodities). Diversifying across asset classes helps reduce portfolio risk.'},
+  {t:'Bear Market',l:'Markets',d:'A period when stock prices fall 20% or more from recent highs. Bear markets are a normal part of investing cycles and have historically always been followed by recoveries. Long-term investors generally benefit from staying invested through them.'},
+  {t:'Blue Chip Stock',l:'Stocks',d:'Shares of a large, well-established, financially stable company with a long track record — like a major Canadian bank or utility. Blue chips are generally considered lower risk than smaller companies but still carry market risk.'},
+  {t:'Bond',l:'Fixed Income',d:'A loan you make to a government or company in exchange for regular interest payments and the return of your principal at a set date. Bonds are generally less volatile than stocks and are used to add stability to a portfolio. In Canada, Government of Canada bonds are considered among the safest.'},
+  {t:'Bull Market',l:'Markets',d:'A period of rising stock prices — typically defined as a 20%+ increase from recent lows. Bull markets can last months or years. Historically, bull markets have lasted longer and produced larger gains than bear markets.'},
+  {t:'Capital Gain',l:'Tax',d:'The profit you earn when you sell an investment for more than you paid. In Canada, only 50% of capital gains outside a registered account (TFSA, RRSP) are taxable income. Inside a TFSA, capital gains are completely tax-free.'},
+  {t:'Compound Interest',l:'Basics',d:`Interest earned on both your original investment and the interest already accumulated. Often called the "eighth wonder of the world" — a $200/month investment at 7% annual return grows to over $500,000 in 40 years. Time is the most powerful factor.`},
+  {t:'CRA (Canada Revenue Agency)',l:'🇨🇦 Canada',d:'The federal government body responsible for tax administration in Canada. The CRA manages contribution room for TFSAs, RRSPs, and FHSAs. You can check your exact registered account room through the CRA My Account portal online.'},
+  {t:'Diversification',l:'Strategy',d:`Spreading your investments across different companies, sectors, and countries to reduce the impact of any single loss. As the saying goes, "don't put all your eggs in one basket." A global ETF like XEQT provides instant diversification across 9,000+ companies.`},
+  {t:'Dividend',l:'Stocks',d:'A portion of a company\'s earnings paid regularly to shareholders — usually quarterly. Dividend-paying stocks are common in Canada (banks, utilities, telecoms). Dividends can be reinvested automatically through a DRIP (Dividend Reinvestment Plan) to compound growth.'},
+  {t:'Dollar-Cost Averaging',l:'Strategy',d:'Investing a fixed dollar amount at regular intervals regardless of the market price. When prices are low you buy more shares; when prices are high you buy fewer. Over time this reduces the impact of volatility and removes the pressure of timing the market.'},
+  {t:'ETF (Exchange-Traded Fund)',l:'🇨🇦 Canada',d:'A fund that holds a basket of securities (often tracking an index) and trades on a stock exchange like a single stock. ETFs offer instant diversification at very low cost. Canadian favourites include XEQT, VEQT, VBAL, and XBAL — available on Wealthsimple and Questrade.'},
+  {t:'Expense Ratio (MER)',l:'Costs',d:'The annual fee charged by a fund manager, expressed as a percentage of assets. A 2% MER on $50,000 costs $1,000/year — every year, compounded. Low-cost ETFs typically charge 0.10%–0.25% MER vs. 1.5–2.5% for actively managed Canadian mutual funds.'},
+  {t:'FHSA (First Home Savings Account)',l:'🇨🇦 Canada',d:'A registered account introduced by Canada in 2023 specifically to help first-time home buyers. Contributions (up to $8,000/year, $40,000 lifetime) are tax-deductible like an RRSP, and withdrawals for a qualifying first home purchase are completely tax-free. Arguably the most powerful new account for young Canadians.'},
+  {t:'Fixed Income',l:'Bonds',d:'Investments that pay a predictable stream of income — typically bonds. Fixed income provides stability and income in a portfolio. As you approach retirement, increasing your fixed income allocation is a common strategy to reduce volatility.'},
+  {t:'Index Fund',l:'Basics',d:'A fund designed to replicate the performance of a specific market index (like the S&P/TSX Composite or S&P 500) rather than trying to beat it. Index funds are passively managed, which keeps costs very low. Most actively managed funds underperform their benchmark index over long periods.'},
+  {t:'Inflation',l:'Economics',d:`The rate at which the general price level rises over time, reducing purchasing power. Canada's inflation target is 2% annually. Cash sitting in a non-interest account loses real value over time — which is why investing matters. Even a modest return above inflation builds real wealth.`},
+  {t:'Liquidity',l:'Basics',d:'How quickly and easily an investment can be converted to cash without significantly affecting its price. Stocks and ETFs are highly liquid (can be sold in seconds). Real estate is illiquid. Your TFSA and RRSP can hold liquid investments — but registered accounts have contribution rules.'},
+  {t:'Market Capitalization',l:'Stocks',d:'The total market value of a company\'s outstanding shares (share price × total shares). Companies are classified as small-cap (<$2B), mid-cap ($2–10B), or large-cap (>$10B). Large-cap companies in Canada include RBC, Shopify, and Canadian National Railway.'},
+  {t:'MER (Management Expense Ratio)',l:'Costs',d:'See Expense Ratio. In Canada, mutual funds sold through banks often carry MERs of 1.5–2.5%. Comparable index ETFs cost 0.10–0.25%. The difference compounds dramatically over decades — on $100,000 over 25 years, a 1.5% difference in fees can cost over $100,000 in lost wealth.'},
+  {t:'Mutual Fund',l:'Funds',d:'A pooled investment fund managed by a professional portfolio manager. In Canada, most mutual funds are actively managed and carry high MERs (1.5–2.5%). Research consistently shows most actively managed funds underperform their index benchmark over 10+ year periods after fees.'},
+  {t:'Net Worth',l:'Basics',d:'Total assets minus total liabilities. Your net worth is the most comprehensive snapshot of your financial position. Building net worth over time — through saving, investing, and reducing debt — is the foundation of long-term financial health.'},
+  {t:'Portfolio',l:'Basics',d:'The complete collection of investments you own — stocks, ETFs, bonds, cash, real estate, etc. A well-constructed portfolio is diversified across asset classes and aligned with your personal goals, timeline, and risk tolerance.'},
+  {t:'Questrade',l:'🇨🇦 Canada',d:'A Canadian online brokerage founded in 1999. One of the most popular self-directed investing platforms in Canada. Known for commission-free ETF purchases (though sells are charged). Offers TFSAs, RRSPs, FHSAs, and margin accounts. A strong option for cost-conscious Canadian investors.'},
+  {t:'RRSP (Registered Retirement Savings Plan)',l:'🇨🇦 Canada',d:`Canada's primary retirement savings vehicle. Contributions are tax-deductible (reducing your taxable income today), investments grow tax-sheltered, and withdrawals in retirement are taxed as income. The annual limit is 18% of your prior year's earned income (up to ~$31,560 in 2024). Best used when you expect to be in a lower tax bracket in retirement than today.`},
+  {t:'Risk Tolerance',l:'Strategy',d:'Your ability and willingness to endure investment losses in pursuit of potential gains. Risk tolerance is both financial (can you afford a 30% drop?) and psychological (can you sleep at night during one?). Being honest about your risk tolerance leads to a portfolio you\'ll actually stick with.'},
+  {t:'RRIF (Registered Retirement Income Fund)',l:'🇨🇦 Canada',d:'An account that your RRSP converts into when you reach age 71. You must begin withdrawing a minimum percentage each year. The withdrawals are taxed as regular income. Understanding the RRSP-to-RRIF conversion helps with long-term retirement income planning.'},
+  {t:'S&P 500',l:'Markets',d:'A stock market index tracking 500 large publicly traded U.S. companies. Often used as a benchmark for U.S. stock market performance. Canadian investors can access S&P 500 exposure through ETFs like ZSP or XUS on the TSX, holding them inside a TFSA or RRSP.'},
+  {t:'Sector',l:'Stocks',d:'A segment of the economy grouping companies with related business activities — e.g., financial services, technology, energy, healthcare. Canada\'s TSX is heavily weighted in financials and energy. Global ETFs like XEQT provide exposure to all sectors worldwide.'},
+  {t:'Self-Directed Investing',l:'Strategy',d:`Managing your own investment portfolio rather than delegating to a financial advisor or robo-advisor. Platforms like Questrade and Wealthsimple Trade enable Canadians to buy ETFs and stocks directly. Self-directed investing can significantly reduce fees — but requires ongoing education.`},
+  {t:'Stock (Equity)',l:'Basics',d:'A share of ownership in a company. When you buy stock, you become a part-owner and benefit when the company grows (capital gain) or pays profits back to shareholders (dividends). Stocks are higher risk than bonds but have historically delivered higher long-term returns.'},
+  {t:'Tax-Loss Harvesting',l:'Tax',d:'Selling an investment at a loss to offset capital gains elsewhere in your portfolio, reducing your tax bill. Only applicable outside registered accounts — losses inside a TFSA or RRSP cannot be used to offset gains. A useful strategy for larger, non-registered portfolios.'},
+  {t:'TFSA (Tax-Free Savings Account)',l:'🇨🇦 Canada',d:`Canada's most flexible registered account. Any investment growth inside a TFSA — dividends, capital gains, interest — is completely tax-free. Withdrawals can be made at any time for any reason without penalty, and the withdrawn amount is restored as contribution room the following calendar year. Every Canadian 18+ has TFSA room accumulating annually. The 2025 annual limit is $7,000.`},
+  {t:'TSX (Toronto Stock Exchange)',l:'🇨🇦 Canada',d:'Canada\'s primary stock exchange, home to over 1,500 listed companies. The S&P/TSX Composite Index tracks the largest companies on the TSX and is a key benchmark for Canadian equities. Canadian ETFs like XIC track the entire TSX Composite at very low cost.'},
+  {t:'Volatility',l:'Markets',d:'The degree of price fluctuation in an investment over time. High volatility means prices swing widely; low volatility means more stable prices. Stocks are more volatile than bonds. Volatility is not the same as risk — a long time horizon makes short-term volatility largely irrelevant for buy-and-hold investors.'},
+  {t:'Wealthsimple',l:'🇨🇦 Canada',d:'A Canadian fintech company offering commission-free stock and ETF trading, as well as robo-advisory and managed investing services. One of the most popular platforms among younger Canadian investors. Offers TFSAs, RRSPs, FHSAs, and personal accounts. Known for its clean interface and zero-commission trades.'},
+  {t:'Withholding Tax',l:'Tax',d:'Tax withheld at source on foreign dividends before they reach you. U.S. dividends paid to Canadians are subject to a 15% withholding tax — except inside an RRSP, where it is waived by treaty. This is one reason some Canadian investors hold U.S. dividend ETFs in their RRSP rather than their TFSA.'},
+  {t:'XEQT / VEQT',l:'🇨🇦 Canada',d:'All-equity one-fund ETFs from iShares (XEQT) and Vanguard (VEQT). Each holds thousands of global stocks across North America, international markets, and emerging markets in a single ticker. MERs around 0.20%. Widely recommended as a simple, low-cost starting point for long-term Canadian growth investors.'},
+  {t:'Yield',l:'Income',d:`The income return on an investment, expressed as a percentage of its price. A stock paying $2/year in dividends trading at $40 has a 5% yield. Higher yield isn't always better — sometimes it signals a company in trouble. Focus on total return (price growth + yield) rather than yield alone.`},
+];
+
+let activeAlpha='all';
+function renderGlossary(){
+  const search=document.getElementById('glossarySearch').value.toLowerCase();
+  const filtered=TERMS.filter(t=>{
+    const matchSearch=!search||(t.t.toLowerCase().includes(search)||t.d.toLowerCase().includes(search)||t.l.toLowerCase().includes(search));
+    const matchAlpha=activeAlpha==='all'||t.t[0].toUpperCase()===activeAlpha;
+    return matchSearch&&matchAlpha;
+  });
+
+  // Alpha buttons
+  const letters=[...new Set(TERMS.map(t=>t.t[0].toUpperCase()))].sort();
+  const alphaEl=document.getElementById('glossaryAlpha');
+  if(!alphaEl.children.length){
+    ['All',...letters].forEach(l=>{
+      const b=document.createElement('button');
+      b.className='alpha-btn'+(l==='All'?' active':'');
+      b.textContent=l;
+      b.onclick=()=>{activeAlpha=l==='All'?'all':l;document.querySelectorAll('.alpha-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderGlossary();};
+      alphaEl.appendChild(b);
+    });
+  }
+
+  document.getElementById('glossaryCount').textContent=`${filtered.length} term${filtered.length!==1?'s':''} found`;
+
+  if(!filtered.length){
+    document.getElementById('glossaryList').innerHTML='<div class="no-results">No terms match your search. Try a different keyword.</div>';
+    return;
+  }
+
+  // Group by first letter
+  const groups={};
+  filtered.forEach(t=>{const l=t.t[0].toUpperCase();if(!groups[l])groups[l]=[];groups[l].push(t);});
+
+  document.getElementById('glossaryList').innerHTML=Object.keys(groups).sort().map(l=>`
+    <div class="glossary-group">
+      <div class="glossary-letter">${l}</div>
+      ${groups[l].map(t=>`
+        <div class="glossary-term" onclick="toggleTerm(this)">
+          <div class="glossary-term-header">
+            <h4>${t.t}</h4>
+            <div style="display:flex;align-items:center;gap:8px">
+              <span class="gtag ${t.l.includes('🇨🇦')?'maple':''}">${t.l}</span>
+              <span class="chevron">▾</span>
+            </div>
+          </div>
+          <div class="glossary-term-body">${t.d}</div>
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
+}
+
+function toggleTerm(el){el.classList.toggle('open');}
+function filterGlossary(){renderGlossary();}
+
+// ═══════════════════════════════════
+// FORMS
+// ═══════════════════════════════════
+function handleNewsletter(e){e.preventDefault();const b=e.target.querySelector('button');b.textContent='✓ Welcome to the family!';e.target.querySelector('input').value='';setTimeout(()=>b.textContent='Subscribe Free 🍁',3500);}
+function handleContact(e){e.preventDefault();const b=e.target.querySelector('button');b.textContent='✓ Dhruv will be in touch!';e.target.reset();setTimeout(()=>b.textContent='Send Message →',3500);}
+
+// ═══════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════
+function fmt(n){return Math.round(n).toLocaleString('en-CA');}
+function pct(v,max){return Math.min((v/max)*100,100);}
+
+// ═══════════════════════════════════
+// SCROLL REVEAL
+// ═══════════════════════════════════
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.07});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
