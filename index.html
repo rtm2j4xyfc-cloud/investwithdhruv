@@ -3270,7 +3270,9 @@
       </div>
       <div class="articles-grid reveal reveal-d2" id="articlesGrid">
         <div class="article-card featured-card canada-article" data-category="canada" onclick="openArticle('guide')">
-          <div class="article-thumb t6">🇨🇦</div>
+          <div class="article-thumb t6"
+            style="background-image: url('student-investing-canada.jpg'); background-size: cover; background-position: center;">
+          </div>
           <div class="article-body">
             <div class="article-tag maple-tag">🇨🇦 Canada · Featured</div>
             <h3>The Complete Canadian Student's Guide to Investing in 2025</h3>
@@ -5391,7 +5393,26 @@
     // ═══════════════════════════════════
     // FORMS
     // ═══════════════════════════════════
-    function handleNewsletter(e) { e.preventDefault(); const b = e.target.querySelector('button'); b.textContent = '✓ Welcome to the family!'; e.target.querySelector('input').value = ''; setTimeout(() => b.textContent = 'Subscribe Free 🍁', 3500); }
+    async function handleNewsletter(e) {
+      e.preventDefault();
+      const email = e.target.querySelector('input[type="email"]').value.trim();
+      if (!email) return;
+      const btn = e.target.querySelector('button');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        await fetch('https://formspree.io/f/xvzwvbgj', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email })
+        });
+        btn.textContent = "You're on the list 🍁";
+        e.target.querySelector('input').value = '';
+      } catch(err) {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+      }
+    }
     function handleContact(e) { e.preventDefault(); const b = e.target.querySelector('button'); b.textContent = '✓ Dhruv will be in touch!'; e.target.reset(); setTimeout(() => b.textContent = 'Send Message →', 3500); }
 
     // ═══════════════════════════════════
