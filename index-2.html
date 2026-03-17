@@ -5398,13 +5398,13 @@
       const email = e.target.querySelector('input[type="email"]').value.trim();
       if (!email) return;
       const btn = e.target.querySelector('button');
-      btn.textContent = 'Subscribing...';
+      btn.textContent = 'Sending...';
       btn.disabled = true;
       try {
-        await fetch('https://api.beehiiv.com/v2/publications/d4dee0f3-84b2-4300-9dc3-02417c9af20f/subscriptions', {
+        await fetch('https://formspree.io/f/xvzwvbgj', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: email, reactivate_existing: false, send_welcome_email: true })
+          body: JSON.stringify({ email: email })
         });
         btn.textContent = "You're on the list 🍁";
         e.target.querySelector('input').value = '';
