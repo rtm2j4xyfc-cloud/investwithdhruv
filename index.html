@@ -3271,7 +3271,7 @@
       <div class="articles-grid reveal reveal-d2" id="articlesGrid">
         <div class="article-card featured-card canada-article" data-category="canada" onclick="openArticle('guide')">
           <div class="article-thumb t6"
-            style="background-image: url('student-investing-canada.jpg'); background-size: cover; background-position: center;">
+            style="background-image: url('canadian-flag.jpg'); background-size: cover; background-position: center;">
           </div>
           <div class="article-body">
             <div class="article-tag maple-tag">🇨🇦 Canada · Featured</div>
@@ -5447,7 +5447,9 @@
         title: 'The Complete Canadian Student\'s Guide to Investing in 2025',
         meta: '18 min read · By Dhruv Sharma · Alberta, Canada',
         emoji: '🇨🇦',
+        heroImg: 'canadian-flag.jpg',
         content: `
+      <img src="canadian-flag.jpg" alt="Canadian flag flying over the mountains" style="width:100%;border-radius:12px;margin-bottom:28px;max-height:400px;object-fit:cover;object-position:center;">
       <div class="article-callout gold-callout"><strong>📝 A Note from Dhruv</strong><p>This is the guide I wish existed when I started. Most investing content online is written for Americans. Everything here is written specifically for Canadians. Start here and you'll have a stronger foundation than most adults.</p></div>
       <h2>Why Start Investing Now?</h2>
       <p>The single most powerful force in investing is <strong>time</strong>. A 20-year-old investing $200/month at 7% ends up with <strong>$525,000 by age 65</strong>. A 30-year-old doing the same has $243,000 — less than half, starting just 10 years later.</p>
@@ -5698,6 +5700,16 @@
       document.getElementById('articleTitle').textContent = a.title;
       document.getElementById('articleMeta').textContent = a.meta;
       document.getElementById('articleHero').setAttribute('data-emoji', a.emoji);
+      const heroEl = document.getElementById('articleHero');
+      if (a.heroImg) {
+        heroEl.style.backgroundImage = 'url(' + a.heroImg + ')';
+        heroEl.style.backgroundSize = 'cover';
+        heroEl.style.backgroundPosition = 'center';
+        heroEl.style.minHeight = '280px';
+      } else {
+        heroEl.style.backgroundImage = '';
+        heroEl.style.minHeight = '';
+      }
       document.getElementById('articleContent').innerHTML = a.content;
       document.getElementById('articleModal').classList.add('open');
       document.body.style.overflow = 'hidden';
