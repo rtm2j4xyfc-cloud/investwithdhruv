@@ -304,12 +304,14 @@ footer{background:#0e0f09;padding:60px 64px 32px;border-top:1px solid rgba(143,1
 .social-icon:hover{background:var(--ol);border-color:var(--ol);color:var(--dark);transform:translateY(-2px);}
 .social-icon svg{width:15px;height:15px;fill:currentColor;}
 
-.modal-overlay{position:fixed;inset:0;background:rgba(22,24,15,.88);display:none;align-items:center;justify-content:center;z-index:999;padding:20px;animation:fadeIn .25s ease;}
+.modal-overlay{position:fixed;inset:0;background:rgba(22,24,15,.92);display:none;align-items:flex-start;justify-content:center;z-index:999;padding:0;animation:fadeIn .25s ease;overflow-y:auto;-webkit-overflow-scrolling:touch;}
 .modal-overlay.open{display:flex;}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.modal{background:var(--cream);border-radius:16px;max-width:480px;width:100%;padding:40px 36px;text-align:center;animation:popIn .3s ease;position:relative;}
-@keyframes popIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
-.modal-close{position:absolute;top:14px;right:14px;background:none;border:none;font-size:1.4rem;color:var(--tm);cursor:pointer;padding:6px;line-height:1;}
+.modal{background:var(--cream);border-radius:0;max-width:780px;width:100%;min-height:100vh;padding:0;text-align:left;animation:popIn .3s ease;position:relative;}
+.modal.coming-soon{max-width:480px;min-height:auto;border-radius:16px;padding:40px 36px;text-align:center;margin:auto;}
+@keyframes popIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.modal-close{position:fixed;top:20px;right:20px;background:rgba(22,24,15,.7);backdrop-filter:blur(8px);border:1px solid rgba(237,228,204,.15);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--beige);cursor:pointer;z-index:1001;transition:all .2s;padding:0;line-height:1;}
+.modal-close:hover{background:rgba(192,57,43,.8);}
 .modal-icon{font-size:3rem;margin-bottom:16px;}
 .modal h3{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--dark);margin-bottom:10px;letter-spacing:-.3px;}
 .modal p{font-size:.92rem;color:var(--tm);line-height:1.7;margin-bottom:22px;}
@@ -318,6 +320,37 @@ footer{background:#0e0f09;padding:60px 64px 32px;border-top:1px solid rgba(143,1
 .modal .btn-m:hover{background:var(--ms);}
 .modal .btn-g{background:transparent;color:var(--tm);border:1px solid var(--border);padding:12px 22px;border-radius:6px;font-family:'Jost',sans-serif;font-weight:500;font-size:.78rem;letter-spacing:.8px;text-transform:uppercase;cursor:pointer;transition:all .2s;}
 .modal .btn-g:hover{border-color:var(--om);color:var(--dark);}
+
+/* Article Reader Styles */
+.article-header{background:var(--dark);padding:60px 48px 40px;position:relative;}
+.article-header .atag{font-size:.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ol);margin-bottom:14px;}
+.article-header h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;color:var(--beige);line-height:1.1;letter-spacing:-.5px;margin-bottom:14px;}
+.article-header .ameta{font-size:.78rem;color:rgba(237,228,204,.4);letter-spacing:.5px;}
+.article-body{padding:48px;}
+.article-body h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--dark);margin:36px 0 16px;line-height:1.2;letter-spacing:-.3px;}
+.article-body h2:first-child{margin-top:0;}
+.article-body h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--dark);margin:24px 0 10px;}
+.article-body p{font-size:.95rem;color:var(--tm);line-height:1.85;margin-bottom:16px;font-weight:300;}
+.article-body ul,.article-body ol{margin:0 0 20px 20px;}
+.article-body li{font-size:.93rem;color:var(--tm);line-height:1.75;margin-bottom:8px;font-weight:300;}
+.article-body li strong{color:var(--dark);font-weight:600;}
+.article-body strong{color:var(--dark);font-weight:600;}
+.article-callout{background:rgba(143,168,112,.08);border:1px solid rgba(143,168,112,.2);border-radius:10px;padding:22px 24px;margin:24px 0;}
+.article-callout strong{display:block;font-size:.88rem;color:var(--dark);margin-bottom:6px;}
+.article-callout p{font-size:.88rem;color:var(--tm);line-height:1.75;margin-bottom:0;}
+.article-callout.gold-callout{background:rgba(212,168,67,.06);border-color:rgba(212,168,67,.2);}
+.article-callout.maple-callout{background:rgba(192,57,43,.05);border-color:rgba(192,57,43,.18);}
+.article-divider{height:1px;background:var(--border);margin:36px 0;}
+.article-body img{max-width:100%;border-radius:12px;margin-bottom:24px;}
+.article-footer{padding:32px 48px;background:var(--bl);border-top:1px solid var(--border);text-align:center;}
+.article-footer p{font-size:.82rem;color:var(--tm);margin-bottom:12px;}
+@media(max-width:960px){
+  .article-header{padding:48px 24px 32px;}
+  .article-body{padding:32px 24px;}
+  .article-footer{padding:24px;}
+  .modal{max-width:100%;}
+  .modal-close{top:12px;right:12px;width:38px;height:38px;}
+}
 
 .reveal{opacity:1;transform:translateY(0);transition:opacity .7s ease,transform .7s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
@@ -441,7 +474,7 @@ footer{background:#0e0f09;padding:60px 64px 32px;border-top:1px solid rgba(143,1
     <div class="agrid reveal d2" id="ag">
 
       <!-- FEATURED -->
-      <div class="acard fc" data-cat="canada" onclick="openArticle()">
+      <div class="acard fc" data-cat="canada" onclick="openArticle('guide')">
         <span class="ca-badge">🇨🇦 CANADA · FEATURED</span>
         <div class="athumb">
           <img class="thumb-img" src="https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Canadian Rockies at dawn">
@@ -458,7 +491,7 @@ footer{background:#0e0f09;padding:60px 64px 32px;border-top:1px solid rgba(143,1
         </div>
       </div>
 
-      <div class="acard" data-cat="canada accounts" onclick="openArticle()">
+      <div class="acard" data-cat="canada accounts" onclick="openArticle('tfsa-rrsp')">
         <span class="ca-badge">🇨🇦 CANADA</span>
         <div class="athumb">
           <img class="thumb-img" src="https://images.pexels.com/photos/1546901/pexels-photo-1546901.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Keys">
@@ -474,7 +507,7 @@ footer{background:#0e0f09;padding:60px 64px 32px;border-top:1px solid rgba(143,1
         </div>
       </div>
 
-      <div class="acard" data-cat="canada accounts" onclick="openArticle()">
+      <div class="acard" data-cat="canada accounts" onclick="openArticle('brokers')">
         <span class="ca-badge">🇨🇦 CANADA</span>
         <div class="athumb">
           <img class="thumb-img" src="https://images.pexels.com/photos/6289028/pexels-photo-6289028.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Phone trading">
@@ -491,7 +524,7 @@ footer{background:#0e0f09;padding:60px 64px 32px;border-top:1px solid rgba(143,1
         </div>
       </div>
 
-      <div class="acard" data-cat="basics" onclick="openArticle()">
+      <div class="acard" data-cat="basics" onclick="openArticle('fifty')">
         <div class="athumb">
           <img class="thumb-img" src="https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cash">
           <div class="thumb-overlay">
@@ -507,7 +540,7 @@ footer{background:#0e0f09;padding:60px 64px 32px;border-top:1px solid rgba(143,1
         </div>
       </div>
 
-      <div class="acard" data-cat="stocks" onclick="openArticle()">
+      <div class="acard" data-cat="stocks" onclick="openArticle('etf-basics')">
         <div class="athumb">
           <img class="thumb-img" src="https://images.pexels.com/photos/210574/pexels-photo-210574.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Coins jar">
           <div class="thumb-overlay">
@@ -522,7 +555,7 @@ footer{background:#0e0f09;padding:60px 64px 32px;border-top:1px solid rgba(143,1
         </div>
       </div>
 
-      <div class="acard" data-cat="strategy" onclick="openArticle()">
+      <div class="acard" data-cat="strategy" onclick="openArticle('dca')">
         <div class="athumb">
           <img class="thumb-img" src="https://images.pexels.com/photos/1020323/pexels-photo-1020323.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Calendar">
           <div class="thumb-overlay">
@@ -538,7 +571,7 @@ footer{background:#0e0f09;padding:60px 64px 32px;border-top:1px solid rgba(143,1
         </div>
       </div>
 
-      <div class="acard" data-cat="budgeting" onclick="openArticle()">
+      <div class="acard" data-cat="budgeting" onclick="openArticle('student-budget')">
         <div class="athumb">
           <img class="thumb-img" src="https://images.pexels.com/photos/1907642/pexels-photo-1907642.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ramen">
           <div class="thumb-overlay">
@@ -553,7 +586,7 @@ footer{background:#0e0f09;padding:60px 64px 32px;border-top:1px solid rgba(143,1
         </div>
       </div>
 
-      <div class="acard" data-cat="basics" onclick="openArticle()">
+      <div class="acard" data-cat="basics" onclick="openArticle('market-downturns')">
         <div class="athumb">
           <img class="thumb-img" src="https://images.pexels.com/photos/1624504/pexels-photo-1624504.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Stormy sky">
           <div class="thumb-overlay">
@@ -568,7 +601,7 @@ footer{background:#0e0f09;padding:60px 64px 32px;border-top:1px solid rgba(143,1
         </div>
       </div>
 
-      <div class="acard" data-cat="canada strategy" onclick="openArticle()">
+      <div class="acard" data-cat="canada strategy" onclick="openArticle('etf-portfolio')">
         <span class="ca-badge">🇨🇦 CANADA</span>
         <div class="athumb">
           <img class="thumb-img" src="https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wooden boxes">
@@ -856,14 +889,16 @@ footer{background:#0e0f09;padding:60px 64px 32px;border-top:1px solid rgba(143,1
 
 <!-- Article Modal -->
 <div class="modal-overlay" id="articleModal" onclick="if(event.target===this)closeArticle()">
-  <div class="modal">
-    <button class="modal-close" onclick="closeArticle()">✕</button>
-    <div class="modal-icon" id="articleIcon">📝</div>
-    <h3 id="articleTitle">This article is coming soon</h3>
-    <div id="articleContent">
-      <p>Dhruv is writing this one right now. Subscribe to the free newsletter and you'll be the first to read it the day it drops.</p>
+  <button class="modal-close" onclick="closeArticle()">✕</button>
+  <div class="modal" id="modalInner">
+    <div class="modal-icon" id="articleIcon" style="display:none">📝</div>
+    <div id="articleHeader" class="article-header" style="display:none"></div>
+    <div id="articleContent" class="article-body"></div>
+    <div id="articleFooter" class="article-footer" style="display:none">
+      <p>Written by Dhruv Sharma · Invest With Dhruv · Alberta, Canada</p>
+      <button class="bmaple" onclick="closeArticle();goTo('newsletter')" style="margin:0 auto">Join the Newsletter 🍁</button>
     </div>
-    <div class="m-actions">
+    <div class="m-actions" id="comingSoonActions" style="display:none;padding:0 36px 36px;">
       <button class="btn-m" onclick="closeArticle();goTo('newsletter')">Join the Newsletter 🍁</button>
       <button class="btn-g" onclick="closeArticle()">Keep Browsing</button>
     </div>
@@ -1469,24 +1504,43 @@ const ARTICLES = {
     `
       }
     };
-};
 
 function openArticle(key){
+  var modal = document.getElementById('modalInner');
+  var header = document.getElementById('articleHeader');
+  var content = document.getElementById('articleContent');
+  var footer = document.getElementById('articleFooter');
+  var icon = document.getElementById('articleIcon');
+  var actions = document.getElementById('comingSoonActions');
   if(key && ARTICLES[key]) {
-      document.getElementById('articleTitle').innerHTML = ARTICLES[key].title;
-      document.getElementById('articleIcon').innerHTML = ARTICLES[key].icon;
-      document.getElementById('articleContent').innerHTML = ARTICLES[key].content;
-      document.querySelector('.modal .m-actions').style.display = 'none'; // Hide newsletter button for actual articles
+      var art = ARTICLES[key];
+      modal.classList.remove('coming-soon');
+      icon.style.display = 'none';
+      header.style.display = 'block';
+      header.innerHTML = '<div class="atag">' + (art.tag || '') + '</div><h1>' + art.title + '</h1><div class="ameta">' + (art.meta || '') + '</div>';
+      content.className = 'article-body';
+      content.innerHTML = art.content;
+      footer.style.display = 'block';
+      actions.style.display = 'none';
   } else {
-      document.getElementById('articleTitle').innerHTML = 'This article is coming soon';
-      document.getElementById('articleIcon').innerHTML = '📝';
-      document.getElementById('articleContent').innerHTML = '<p>Dhruv is writing this one right now. Subscribe to the free newsletter and you\'ll be the first to read it the day it drops.</p>';
-      document.querySelector('.modal .m-actions').style.display = 'flex';
+      modal.classList.add('coming-soon');
+      icon.style.display = 'block';
+      icon.innerHTML = '📝';
+      header.style.display = 'none';
+      content.className = '';
+      content.innerHTML = '<h3 style="font-family:Cormorant Garamond,serif;font-size:1.7rem;font-weight:700;color:var(--dark);margin-bottom:10px;text-align:center;">This article is coming soon</h3><p style="font-size:.92rem;color:var(--tm);line-height:1.7;text-align:center;">Dhruv is writing this one right now. Subscribe to the free newsletter and you\'ll be the first to read it the day it drops.</p>';
+      footer.style.display = 'none';
+      actions.style.display = 'flex';
   }
-  document.getElementById('articleModal').classList.add('open');
+  var overlay = document.getElementById('articleModal');
+  overlay.classList.add('open');
+  overlay.scrollTop = 0;
   document.body.style.overflow='hidden';
 }
-function closeArticle(){document.getElementById('articleModal').classList.remove('open');document.body.style.overflow='';}
+function closeArticle(){
+  document.getElementById('articleModal').classList.remove('open');
+  document.body.style.overflow='';
+}
 
 function fArt(cat,btn){
   document.querySelectorAll('.fbtn').forEach(function(b){b.classList.remove('active');});
@@ -1778,18 +1832,6 @@ function handleNL(e){e.preventDefault();var b=e.target.querySelector('button');b
 var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.07});
 document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
 
-// Setup click handlers for the 4 specific articles
-document.addEventListener('DOMContentLoaded', () => {
-    const dcaCards = Array.from(document.querySelectorAll('.acard h3')).filter(h => h.textContent.includes('Dollar-Cost Averaging: A Strategy That Works With Your Emotions'));
-    const budgetCards = Array.from(document.querySelectorAll('.acard h3')).filter(h => h.textContent.includes('A Student Budget That Actually Leaves Room to Invest'));
-    const downturnsCards = Array.from(document.querySelectorAll('.acard h3')).filter(h => h.textContent.includes('Market Downturns: What They Mean and How to Stay Calm'));
-    const portfolioCards = Array.from(document.querySelectorAll('.acard h3')).filter(h => h.textContent.includes('How to Build a Simple Canadian ETF Portfolio From Scratch'));
-    
-    if(dcaCards.length > 0) dcaCards[0].closest('.acard').setAttribute('onclick', "openArticle('dca')");
-    if(budgetCards.length > 0) budgetCards[0].closest('.acard').setAttribute('onclick', "openArticle('student-budget')");
-    if(downturnsCards.length > 0) downturnsCards[0].closest('.acard').setAttribute('onclick', "openArticle('market-downturns')");
-    if(portfolioCards.length > 0) portfolioCards[0].closest('.acard').setAttribute('onclick', "openArticle('etf-portfolio')");
-});
 
 </script>
 </body>
